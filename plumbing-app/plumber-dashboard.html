@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumber Dashboard — PlumBit</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <div class="container navbar-container">
+                <a href="index.html" class="navbar-brand">
+                    <div class="brand-icon">🔧</div><span class="brand-name">PlumBit</span>
+                </a>
+                <div class="nav-right">
+                    <button id="langToggle" class="btn btn-glass btn-sm hide-mobile">🌐 EN</button>
+                    <a href="login.html" class="btn btn-outline btn-sm hide-mobile">Logout</a>
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+        <div class="mobile-divider"></div>
+        <a href="login.html" class="mobile-nav-link">🚪 Logout</a>
+    </div>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="brand-icon" style="width:32px;height:32px;font-size:1rem">🔧</div><span class="brand-name"
+                    style="font-size:1rem">PlumBit</span>
+            </div>
+            <div
+                style="display:flex;align-items:center;gap:12px;padding:14px;background:rgba(14,165,233,0.08);border-radius:var(--radius-md);margin-bottom:8px">
+                <div class="avatar" style="background:linear-gradient(135deg,var(--accent),var(--accent-dark))">R</div>
+                <div>
+                    <div style="font-weight:700;font-size:0.9rem">Rajesh Kumar</div>
+                    <div style="font-size:0.75rem;color:var(--success);display:flex;align-items:center;gap:4px"><span
+                            class="status-dot status-online"></span>Available</div>
+                </div>
+            </div>
+            <div class="sidebar-label">Dashboard</div>
+            <a href="#requests" class="sidebar-item active"><span class="sidebar-icon">📬</span> Job Requests <span
+                    class="sidebar-badge">2</span></a>
+            <a href="#active" class="sidebar-item"><span class="sidebar-icon">🔧</span> Active Jobs</a>
+            <a href="#earnings" class="sidebar-item"><span class="sidebar-icon">💰</span> Earnings</a>
+            <div class="sidebar-label">Profile</div>
+            <a href="#availability" class="sidebar-item"><span class="sidebar-icon">📅</span> Availability</a>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">👤</span> My Profile</a>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">⭐</span> My Reviews</a>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">📄</span> Documents</a>
+            <a href="login.html" class="sidebar-item" style="color:var(--danger)"><span class="sidebar-icon">🚪</span>
+                Logout</a>
+        </aside>
+
+        <!-- Main -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div>
+                    <div class="dashboard-title">Plumber Dashboard 🔧</div>
+                    <div class="dashboard-subtitle">Welcome back, Rajesh — here's today's overview</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px">
+                    <span style="font-size:0.875rem;color:var(--text-secondary)">Availability</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="availabilityToggle" checked
+                            onchange="handleAvailabilityToggle(this)">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span id="availStatus" style="font-size:0.875rem;color:var(--success);font-weight:600">Online</span>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="dash-stats">
+                <div class="dash-stat-card">
+                    <div class="dash-stat-icon">✅</div>
+                    <div class="dash-stat-val" data-count="847" data-suffix="">0</div>
+                    <div class="dash-stat-lbl">Jobs Completed</div>
+                    <div class="dash-stat-trend trend-up">↑ 12 this week</div>
+                </div>
+                <div class="dash-stat-card">
+                    <div class="dash-stat-icon">💰</div>
+                    <div class="dash-stat-val">₹18,450</div>
+                    <div class="dash-stat-lbl">This Month</div>
+                    <div class="dash-stat-trend trend-up">↑ 23% vs last month</div>
+                </div>
+                <div class="dash-stat-card">
+                    <div class="dash-stat-icon">⭐</div>
+                    <div class="dash-stat-val">4.9</div>
+                    <div class="dash-stat-lbl">Average Rating</div>
+                    <div class="dash-stat-trend trend-up">Top 5% Plumbers</div>
+                </div>
+                <div class="dash-stat-card">
+                    <div class="dash-stat-icon">📬</div>
+                    <div class="dash-stat-val" data-count="2" data-suffix="">0</div>
+                    <div class="dash-stat-lbl">Pending Requests</div>
+                    <div class="dash-stat-trend" style="color:var(--warning)">⚡ Respond quickly!</div>
+                </div>
+            </div>
+
+            <!-- Job Requests -->
+            <div id="requests" style="margin-top:8px">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+                    <h2 style="font-size:1.2rem;font-weight:800">📬 Incoming Job Requests</h2>
+                    <span class="badge badge-accent">2 New</span>
+                </div>
+
+                <div class="job-request-card" style="border-color:rgba(14,165,233,0.3)">
+                    <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
+                        <div class="avatar" style="background:linear-gradient(135deg,#7C3AED,#4F46E5)">P</div>
+                        <div style="flex:1;min-width:200px">
+                            <div style="font-weight:700;font-size:1rem;margin-bottom:4px">Priya Mehta</div>
+                            <div style="font-size:0.85rem;color:var(--primary-light);font-weight:600;margin-bottom:8px">
+                                🔧 Pipe Leak Repair</div>
+                            <div
+                                style="display:flex;flex-wrap:wrap;gap:12px;font-size:0.82rem;color:var(--text-secondary)">
+                                <span>📍 Andheri West, Mumbai (1.2 km)</span>
+                                <span>📅 Today, 9:00 AM</span>
+                                <span>💰 ₹349 est.</span>
+                            </div>
+                            <div style="margin-top:8px;font-size:0.82rem;color:var(--text-secondary)">📝 "Water leaking
+                                from kitchen pipe under sink. Urgent repair needed."</div>
+                        </div>
+                        <div style="text-align:right">
+                            <span class="badge badge-warning">⏰ Expires in 5 min</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-accept">✅ Accept Job</button>
+                        <button class="btn-reject">✕ Decline</button>
+                        <button class="btn btn-glass btn-sm" onclick="showToast('Customer called','info')">📞 Call
+                            Customer</button>
+                    </div>
+                </div>
+
+                <div class="job-request-card">
+                    <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
+                        <div class="avatar" style="background:linear-gradient(135deg,var(--success),#059669)">A</div>
+                        <div style="flex:1;min-width:200px">
+                            <div style="font-weight:700;font-size:1rem;margin-bottom:4px">Amit Desai</div>
+                            <div style="font-size:0.85rem;color:var(--accent-light);font-weight:600;margin-bottom:8px">
+                                🌀 Drain Cleaning</div>
+                            <div
+                                style="display:flex;flex-wrap:wrap;gap:12px;font-size:0.82rem;color:var(--text-secondary)">
+                                <span>📍 Powai, Mumbai (3.5 km)</span>
+                                <span>📅 Tomorrow, 11:00 AM</span>
+                                <span>💰 ₹399 est.</span>
+                            </div>
+                            <div style="margin-top:8px;font-size:0.82rem;color:var(--text-secondary)">📝 "Bathroom drain
+                                completely blocked. Have tried cleaning but didn't help."</div>
+                        </div>
+                        <div style="text-align:right"><span class="badge badge-success">⏰ 2 hrs left</span></div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn-accept">✅ Accept Job</button>
+                        <button class="btn-reject">✕ Decline</button>
+                        <button class="btn btn-glass btn-sm" onclick="showToast('Customer called','info')">📞 Call
+                            Customer</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Jobs -->
+            <div id="active" style="margin-top:36px">
+                <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:16px">🔧 Active Jobs</h2>
+                <div class="card" style="border-color:rgba(34,197,94,0.3)">
+                    <div
+                        style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px">
+                        <div>
+                            <div style="font-weight:700">Tap Replacement — Kavita Singh</div>
+                            <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:3px">📍 Bandra, Mumbai
+                                • Started 10:30 AM</div>
+                        </div>
+                        <span class="badge badge-primary">🔧 In Progress</span>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <button class="btn btn-success btn-sm"
+                            style="background:rgba(34,197,94,0.15);color:var(--success);border:1px solid rgba(34,197,94,0.3);border-radius:var(--radius-full);padding:8px 18px;cursor:pointer;font-size:0.85rem;font-weight:600"
+                            onclick="showToast('✅ Job marked as complete!','success')">✅ Mark Complete</button>
+                        <button class="btn btn-outline btn-sm" onclick="showToast('📞 Calling customer...','info')">📞
+                            Call Customer</button>
+                        <button class="btn btn-outline btn-sm" onclick="showToast('Invoice generated','success')">🧾
+                            Generate Invoice</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings Chart -->
+            <div id="earnings" style="margin-top:36px">
+                <div
+                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px">
+                    <h2 style="font-size:1.2rem;font-weight:800">💰 Weekly Earnings</h2>
+                    <div style="font-size:0.9rem;font-weight:700;color:var(--primary-light)">This Week: ₹4,250</div>
+                </div>
+                <div class="card">
+                    <div style="display:flex;align-items:flex-end;gap:6px;height:120px;padding:8px 0"
+                        id="earningsChart"></div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px">
+                    <div class="stat-card">
+                        <div class="stat-value">₹4,250</div>
+                        <div class="stat-label">This Week</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">₹18,450</div>
+                        <div class="stat-label">This Month</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">₹2,14,800</div>
+                        <div class="stat-label">Total Earned</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Availability -->
+            <div id="availability" style="margin-top:36px">
+                <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:16px">📅 Working Hours</h2>
+                <div class="card">
+                    <div style="display:flex;flex-direction:column;gap:14px">
+                        <div
+                            style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+                            <div>
+                                <div style="font-weight:600">Monday – Saturday</div>
+                                <div style="font-size:0.82rem;color:var(--text-secondary)">Regular working hours</div>
+                            </div>
+                            <select class="form-input" style="width:auto">
+                                <option>8:00 AM – 8:00 PM</option>
+                                <option>9:00 AM – 6:00 PM</option>
+                                <option>6:00 AM – 10:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="divider"></div>
+                        <div
+                            style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+                            <div>
+                                <div style="font-weight:600">Sunday / Holidays</div>
+                                <div style="font-size:0.82rem;color:var(--text-secondary)">Emergency only</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked><span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="divider"></div>
+                        <div
+                            style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+                            <div>
+                                <div style="font-weight:600">Emergency Mode</div>
+                                <div style="font-size:0.82rem;color:var(--text-secondary)">Accept emergency bookings
+                                    anytime</div>
+                            </div>
+                            <label class="toggle-switch"><input type="checkbox"><span
+                                    class="toggle-slider"></span></label>
+                        </div>
+                        <button class="btn btn-primary" style="width:fit-content"
+                            onclick="showToast('✅ Availability updated!','success')">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-bubble">
+        <button class="chatbot-btn" id="chatbotBtn">💬<span class="chatbot-notif">1</span></button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-av">🤖</div>
+                <div>
+                    <div class="chatbot-name">PlumBot AI</div>
+                    <div class="chatbot-status"><span class="status-dot status-online"></span>Online</div>
+                </div><button class="chatbot-close" id="chatbotClose">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-msg bot">Hi Rajesh! You have 2 new job requests. <div class="quick-replies"><span
+                            class="quick-reply">earnings</span><span class="quick-reply">time</span></div>
+                </div>
+            </div>
+            <div class="chatbot-input-row"><input type="text" class="chatbot-input" id="chatbotInput"
+                    placeholder="Type a message..."><button class="chatbot-send" id="chatbotSend">→</button></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function handleAvailabilityToggle(toggle) {
+            const status = document.getElementById('availStatus');
+            if (toggle.checked) { status.textContent = 'Online'; status.style.color = 'var(--success)'; showToast('✅ You are now Online and accepting jobs', 'success'); }
+            else { status.textContent = 'Offline'; status.style.color = 'var(--text-muted)'; showToast('You are now Offline', 'info'); }
+        }
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (this.getAttribute('href')?.startsWith('#')) { e.preventDefault(); document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active')); this.classList.add('active'); document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+    </script>
+</body>
+
+</html>

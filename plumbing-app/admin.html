@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel — PlumBit</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <div class="container navbar-container">
+                <a href="index.html" class="navbar-brand">
+                    <div class="brand-icon">🔧</div><span class="brand-name">PlumBit Admin</span>
+                </a>
+                <div class="nav-right">
+                    <button id="langToggle" class="btn btn-glass btn-sm hide-mobile">🌐 EN</button>
+                    <a href="login.html" class="btn btn-outline btn-sm hide-mobile">Logout</a>
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+        <div class="mobile-divider"></div>
+        <a href="login.html" class="mobile-nav-link">🚪 Logout</a>
+    </div>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="brand-icon" style="width:32px;height:32px;font-size:1rem">🛡️</div><span class="brand-name"
+                    style="font-size:1rem">Admin</span>
+            </div>
+            <div
+                style="padding:12px;background:rgba(249,115,22,0.08);border-radius:var(--radius-md);margin-bottom:8px;font-size:0.85rem">
+                <div style="font-weight:700">Admin User</div>
+                <div style="font-size:0.75rem;color:var(--accent-light)">Super Administrator</div>
+            </div>
+            <div class="sidebar-label">Overview</div>
+            <a href="#overview" class="sidebar-item active"><span class="sidebar-icon">📊</span> Dashboard</a>
+            <a href="#bookings" class="sidebar-item"><span class="sidebar-icon">📋</span> Bookings <span
+                    class="sidebar-badge">48</span></a>
+            <div class="sidebar-label">Users</div>
+            <a href="#users" class="sidebar-item"><span class="sidebar-icon">👥</span> Customers</a>
+            <a href="#plumbers" class="sidebar-item"><span class="sidebar-icon">🔧</span> Plumbers <span
+                    class="sidebar-badge">5</span></a>
+            <div class="sidebar-label">Management</div>
+            <a href="#services" class="sidebar-item"><span class="sidebar-icon">⚙️</span> Services & Pricing</a>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">💳</span> Payments</a>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">📣</span> Notifications</a>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">📈</span> Analytics</a>
+            <a href="login.html" class="sidebar-item" style="color:var(--danger)"><span class="sidebar-icon">🚪</span>
+                Logout</a>
+        </aside>
+
+        <!-- Main -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div>
+                    <div class="dashboard-title">Admin Panel 🛡️</div>
+                    <div class="dashboard-subtitle">Platform overview — March 2026</div>
+                </div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                    <button class="btn btn-glass btn-sm" onclick="showToast('Report exported!','success')">📥 Export
+                        Report</button>
+                    <button class="btn btn-primary btn-sm" onclick="showToast('Notification sent!','success')">📣 Send
+                        Notification</button>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div id="overview">
+                <div class="dash-stats" style="margin-bottom:16px">
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon">👥</div>
+                        <div class="dash-stat-val" data-count="12450" data-suffix="">0</div>
+                        <div class="dash-stat-lbl">Total Customers</div>
+                        <div class="dash-stat-trend trend-up">↑ 284 this week</div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon">🔧</div>
+                        <div class="dash-stat-val" data-count="523" data-suffix="">0</div>
+                        <div class="dash-stat-lbl">Active Plumbers</div>
+                        <div class="dash-stat-trend trend-up">↑ 12 new this month</div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon">📋</div>
+                        <div class="dash-stat-val" data-count="48" data-suffix="">0</div>
+                        <div class="dash-stat-lbl">Today's Bookings</div>
+                        <div class="dash-stat-trend trend-up">↑ 128% vs yesterday</div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon">💰</div>
+                        <div class="dash-stat-val">₹2.4L</div>
+                        <div class="dash-stat-lbl">This Month Revenue</div>
+                        <div class="dash-stat-trend trend-up">↑ 34% vs last month</div>
+                    </div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px">
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="97" data-suffix="%">0</div>
+                        <div class="stat-label">Completion Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="5" data-suffix=" pending">0</div>
+                        <div class="stat-label">Plumber Approvals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4.8⭐</div>
+                        <div class="stat-label">Platform Rating</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="18" data-suffix=" min">0</div>
+                        <div class="stat-label">Avg Response Time</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plumber Approvals -->
+            <div id="plumbers" style="margin-top:8px">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+                    <h2 style="font-size:1.2rem;font-weight:800">🔧 Plumber Approval Queue</h2><span
+                        class="badge badge-warning">5 Pending</span>
+                </div>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>City</th>
+                                <th>Experience</th>
+                                <th>Documents</th>
+                                <th>Applied</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="font-weight:600">Mohan Das</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">mohan@example.com</div>
+                                </td>
+                                <td>Delhi</td>
+                                <td>6 years</td>
+                                <td><span class="badge badge-success">✅ Verified</span></td>
+                                <td>Mar 5</td>
+                                <td style="display:flex;gap:6px">
+                                    <button class="btn-accept"
+                                        onclick="this.closest('tr').style.opacity='0.5';showToast('✅ Mohan approved!','success')">Approve</button>
+                                    <button class="btn-reject"
+                                        onclick="this.closest('tr').style.opacity='0.5';showToast('Rejected','info')">Reject</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-weight:600">Sudarshan K</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">sud@example.com</div>
+                                </td>
+                                <td>Hyderabad</td>
+                                <td>10 years</td>
+                                <td><span class="badge badge-warning">⏳ Pending</span></td>
+                                <td>Mar 4</td>
+                                <td style="display:flex;gap:6px">
+                                    <button class="btn-accept"
+                                        onclick="this.closest('tr').style.opacity='0.5';showToast('✅ Approved!','success')">Approve</button>
+                                    <button class="btn-reject"
+                                        onclick="this.closest('tr').style.opacity='0.5';showToast('Rejected','info')">Reject</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-weight:600">Ravi Sharma</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">ravi@example.com</div>
+                                </td>
+                                <td>Pune</td>
+                                <td>3 years</td>
+                                <td><span class="badge badge-danger">❌ Incomplete</span></td>
+                                <td>Mar 3</td>
+                                <td style="display:flex;gap:6px">
+                                    <button class="btn btn-outline btn-sm"
+                                        onclick="showToast('Reminder sent to Ravi','info')">📧 Request Docs</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bookings Monitor -->
+            <div id="bookings" style="margin-top:36px">
+                <div
+                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px">
+                    <h2 style="font-size:1.2rem;font-weight:800">📋 Bookings Monitor</h2>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <input type="search" class="form-input" placeholder="Search bookings..."
+                            style="width:200px;padding:8px 14px">
+                        <select class="form-input" style="width:auto;padding:8px 14px">
+                            <option>All Status</option>
+                            <option>In Progress</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Plumber</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#PB-2847</td>
+                                <td>Priya Mehta</td>
+                                <td>Pipe Leak</td>
+                                <td>Rajesh K.</td>
+                                <td>Mar 7</td>
+                                <td>₹349</td>
+                                <td><span class="badge badge-primary">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>#PB-2846</td>
+                                <td>Amit Desai</td>
+                                <td>Drain Clean</td>
+                                <td>Suresh P.</td>
+                                <td>Mar 7</td>
+                                <td>₹399</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>#PB-2845</td>
+                                <td>Kavita Singh</td>
+                                <td>Tap Replace</td>
+                                <td>Rajesh K.</td>
+                                <td>Mar 6</td>
+                                <td>₹450</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>#PB-2844</td>
+                                <td>Rohan Rao</td>
+                                <td>Heater Repair</td>
+                                <td>Anand S.</td>
+                                <td>Mar 6</td>
+                                <td>₹550</td>
+                                <td><span class="badge badge-danger">Cancelled</span></td>
+                            </tr>
+                            <tr>
+                                <td>#PB-2843</td>
+                                <td>Sunita G.</td>
+                                <td>Tank Cleaning</td>
+                                <td>Suresh P.</td>
+                                <td>Mar 5</td>
+                                <td>₹899</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Service Pricing Editor -->
+            <div id="services" style="margin-top:36px">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+                    <h2 style="font-size:1.2rem;font-weight:800">⚙️ Service Pricing Manager</h2>
+                    <button class="btn btn-primary btn-sm" onclick="showToast('✅ All prices saved!','success')">💾 Save
+                        Changes</button>
+                </div>
+                <div class="card">
+                    <div style="display:flex;flex-direction:column;gap:16px">
+                        <div
+                            style="display:grid;grid-template-columns:1fr 140px 140px 80px;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--border-subtle);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted)">
+                            <span>Service Name</span><span>Base Price (₹)</span><span>Max Price
+                                (₹)</span><span>Status</span>
+                        </div>
+                        <div
+                            style="display:grid;grid-template-columns:1fr 140px 140px 80px;gap:12px;align-items:center">
+                            <div style="font-weight:600">💧 Pipe Leak Repair</div>
+                            <input type="number" class="form-input" value="299" style="padding:8px 12px">
+                            <input type="number" class="form-input" value="999" style="padding:8px 12px">
+                            <label class="toggle-switch"><input type="checkbox" checked><span
+                                    class="toggle-slider"></span></label>
+                        </div>
+                        <div
+                            style="display:grid;grid-template-columns:1fr 140px 140px 80px;gap:12px;align-items:center">
+                            <div style="font-weight:600">🚿 Tap Replacement</div>
+                            <input type="number" class="form-input" value="399" style="padding:8px 12px">
+                            <input type="number" class="form-input" value="1200" style="padding:8px 12px">
+                            <label class="toggle-switch"><input type="checkbox" checked><span
+                                    class="toggle-slider"></span></label>
+                        </div>
+                        <div
+                            style="display:grid;grid-template-columns:1fr 140px 140px 80px;gap:12px;align-items:center">
+                            <div style="font-weight:600">🌀 Drain Cleaning</div>
+                            <input type="number" class="form-input" value="349" style="padding:8px 12px">
+                            <input type="number" class="form-input" value="899" style="padding:8px 12px">
+                            <label class="toggle-switch"><input type="checkbox" checked><span
+                                    class="toggle-slider"></span></label>
+                        </div>
+                        <div
+                            style="display:grid;grid-template-columns:1fr 140px 140px 80px;gap:12px;align-items:center">
+                            <div style="font-weight:600">🚨 Emergency 24/7</div>
+                            <input type="number" class="form-input" value="599" style="padding:8px 12px">
+                            <input type="number" class="form-input" value="2000" style="padding:8px 12px">
+                            <label class="toggle-switch"><input type="checkbox" checked><span
+                                    class="toggle-slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Management -->
+            <div id="users" style="margin-top:36px">
+                <div
+                    style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px">
+                    <h2 style="font-size:1.2rem;font-weight:800">👥 Customer Management</h2>
+                    <input type="search" class="form-input" placeholder="Search customers..."
+                        style="width:240px;padding:8px 14px">
+                </div>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>City</th>
+                                <th>Bookings</th>
+                                <th>Total Spent</th>
+                                <th>Member Since</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="font-weight:600">Priya Mehta</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">priya@example.com</div>
+                                </td>
+                                <td>Mumbai</td>
+                                <td>12</td>
+                                <td>₹3,840</td>
+                                <td>Jan 2024</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td><button class="btn btn-outline btn-sm"
+                                        onclick="showToast('Profile viewed','info')">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-weight:600">Amit Desai</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">amit@example.com</div>
+                                </td>
+                                <td>Mumbai</td>
+                                <td>6</td>
+                                <td>₹2,100</td>
+                                <td>Mar 2024</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td><button class="btn btn-outline btn-sm">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="font-weight:600">Rohan Rao</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">rohan@example.com</div>
+                                </td>
+                                <td>Delhi</td>
+                                <td>1</td>
+                                <td>₹0</td>
+                                <td>Feb 2026</td>
+                                <td><span class="badge badge-danger">Suspended</span></td>
+                                <td><button class="btn-accept"
+                                        onclick="showToast('Account reactivated','success')">Reactivate</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-bubble">
+        <button class="chatbot-btn" id="chatbotBtn">💬<span class="chatbot-notif">1</span></button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-av">🤖</div>
+                <div>
+                    <div class="chatbot-name">PlumBot AI</div>
+                    <div class="chatbot-status"><span class="status-dot status-online"></span>Online</div>
+                </div><button class="chatbot-close" id="chatbotClose">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-msg bot">Admin panel ready! 5 plumber approvals pending. <div class="quick-replies">
+                        <span class="quick-reply">help</span></div>
+                </div>
+            </div>
+            <div class="chatbot-input-row"><input type="text" class="chatbot-input" id="chatbotInput"
+                    placeholder="Type a message..."><button class="chatbot-send" id="chatbotSend">→</button></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (this.getAttribute('href')?.startsWith('#')) { e.preventDefault(); document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active')); this.classList.add('active'); document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+    </script>
+</body>
+
+</html>

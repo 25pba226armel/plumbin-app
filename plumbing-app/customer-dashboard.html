@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard — PlumBit</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <div class="container navbar-container">
+                <a href="index.html" class="navbar-brand">
+                    <div class="brand-icon">🔧</div><span class="brand-name">PlumBit</span>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="booking.html" class="nav-link">Book Now</a>
+                </nav>
+                <div class="nav-right">
+                    <button id="langToggle" class="btn btn-glass btn-sm hide-mobile">🌐 EN</button>
+                    <a href="login.html" class="btn btn-outline btn-sm hide-mobile">Logout</a>
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+        <a href="services.html" class="mobile-nav-link">🔧 Services</a>
+        <a href="booking.html" class="mobile-nav-link">📅 Book Now</a>
+        <div class="mobile-divider"></div>
+        <a href="login.html" class="mobile-nav-link">🚪 Logout</a>
+    </div>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="brand-icon" style="width:32px;height:32px;font-size:1rem">🔧</div>
+                <span class="brand-name" style="font-size:1rem">PlumBit</span>
+            </div>
+            <div
+                style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(14,165,233,0.08);border-radius:var(--radius-md);margin-bottom:8px">
+                <div class="avatar">P</div>
+                <div>
+                    <div style="font-weight:700;font-size:0.9rem">Priya Mehta</div>
+                    <div style="font-size:0.75rem;color:var(--text-secondary)">priya@example.com</div>
+                </div>
+            </div>
+            <div class="sidebar-label">Main Menu</div>
+            <a href="#bookings" class="sidebar-item active"><span class="sidebar-icon">📋</span> My Bookings <span
+                    class="sidebar-badge">3</span></a>
+            <a href="#tracking" class="sidebar-item"><span class="sidebar-icon">📍</span> Track Plumber</a>
+            <a href="#payments" class="sidebar-item"><span class="sidebar-icon">💳</span> Payments</a>
+            <a href="#addresses" class="sidebar-item"><span class="sidebar-icon">🏠</span> My Addresses</a>
+            <a href="#reviews" class="sidebar-item"><span class="sidebar-icon">⭐</span> My Reviews</a>
+            <a href="#rewards" class="sidebar-item"><span class="sidebar-icon">🏆</span> Rewards</a>
+            <div class="sidebar-label">Account</div>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">👤</span> Profile</a>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">🔔</span> Notifications <span
+                    class="sidebar-badge">5</span></a>
+            <a href="#" class="sidebar-item"><span class="sidebar-icon">⚙️</span> Settings</a>
+            <a href="login.html" class="sidebar-item" style="margin-top:auto;color:var(--danger)"><span
+                    class="sidebar-icon">🚪</span> Logout</a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div>
+                    <div class="dashboard-title">Good evening, Priya 👋</div>
+                    <div class="dashboard-subtitle">Here's what's happening with your plumbing services</div>
+                </div>
+                <a href="booking.html" class="btn btn-primary">🪠 Book New Service</a>
+            </div>
+
+            <!-- Stats -->
+            <div class="dash-stats">
+                <div class="dash-stat-card">
+                    <div class="dash-stat-icon">📋</div>
+                    <div class="dash-stat-val" data-count="12" data-suffix="">0</div>
+                    <div class="dash-stat-lbl">Total Bookings</div>
+                    <div class="dash-stat-trend trend-up">↑ 2 this month</div>
+                </div>
+                <div class="dash-stat-card">
+                    <div class="dash-stat-icon">✅</div>
+                    <div class="dash-stat-val" data-count="10" data-suffix="">0</div>
+                    <div class="dash-stat-lbl">Completed</div>
+                    <div class="dash-stat-trend trend-up">↑ 83% success rate</div>
+                </div>
+                <div class="dash-stat-card">
+                    <div class="dash-stat-icon">💰</div>
+                    <div class="dash-stat-val">₹3,840</div>
+                    <div class="dash-stat-lbl">Total Spent</div>
+                    <div class="dash-stat-trend" style="color:var(--text-muted)">Avg ₹320/booking</div>
+                </div>
+                <div class="dash-stat-card">
+                    <div class="dash-stat-icon">🏆</div>
+                    <div class="dash-stat-val" data-count="480" data-suffix="">0</div>
+                    <div class="dash-stat-lbl">Loyalty Points</div>
+                    <div class="dash-stat-trend trend-up">↑ 50 pts this week</div>
+                </div>
+            </div>
+
+            <!-- Active Booking Tracking -->
+            <div class="tracking-card" id="tracking">
+                <div class="tracking-header">
+                    <div>
+                        <div style="font-weight:800;font-size:1.1rem">🔧 Active Booking #PB-2847</div>
+                        <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:4px">Pipe Leak Repair •
+                            Rajesh Kumar • Today, 9:00 AM</div>
+                    </div>
+                    <span class="badge badge-primary">In Progress</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start">
+                    <div>
+                        <div class="tracking-steps">
+                            <div class="track-step done">
+                                <div class="track-dot"></div>
+                                <div class="track-info">
+                                    <div class="track-title">✅ Booking Confirmed</div>
+                                    <div class="track-time">8:15 AM — Booking accepted</div>
+                                </div>
+                            </div>
+                            <div class="track-step done">
+                                <div class="track-dot"></div>
+                                <div class="track-info">
+                                    <div class="track-title">✅ Plumber Assigned</div>
+                                    <div class="track-time">8:20 AM — Rajesh Kumar assigned</div>
+                                </div>
+                            </div>
+                            <div class="track-step active">
+                                <div class="track-dot"></div>
+                                <div class="track-info">
+                                    <div class="track-title">🚗 En Route to You</div>
+                                    <div class="track-time">Now — ETA 15 minutes (1.2 km)</div>
+                                </div>
+                            </div>
+                            <div class="track-step">
+                                <div class="track-dot"></div>
+                                <div class="track-info">
+                                    <div class="track-title">Service In Progress</div>
+                                    <div class="track-time">Pending</div>
+                                </div>
+                            </div>
+                            <div class="track-step">
+                                <div class="track-dot"></div>
+                                <div class="track-info">
+                                    <div class="track-title">Job Complete & Payment</div>
+                                    <div class="track-time">Pending</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div
+                            style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg-card);border:1px solid var(--border-glass);border-radius:var(--radius-md);margin-bottom:12px">
+                            <div class="avatar-lg">👷</div>
+                            <div>
+                                <div style="font-weight:700">Rajesh Kumar</div>
+                                <div style="font-size:0.8rem;color:var(--text-secondary)">4.9⭐ Verified Plumber</div>
+                                <div style="font-size:0.8rem;color:var(--success);margin-top:3px">📍 1.2 km away</div>
+                            </div>
+                            <div style="margin-left:auto;display:flex;flex-direction:column;gap:8px">
+                                <a href="tel:+919876543210" class="btn btn-primary btn-sm">📞 Call</a>
+                                <button class="btn btn-outline btn-sm" onclick="showToast('Opening chat...','info')">💬
+                                    Chat</button>
+                            </div>
+                        </div>
+                        <div class="map-placeholder">
+                            <div class="map-dot"></div>
+                            <p>Rajesh is on the way</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking History -->
+            <div id="bookings" style="margin-top:32px">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+                    <h2 style="font-size:1.2rem;font-weight:800">📋 Booking History</h2>
+                    <a href="booking.html" class="btn btn-outline btn-sm">+ New Booking</a>
+                </div>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Service</th>
+                                <th>Plumber</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#PB-2847</td>
+                                <td>Pipe Leak Repair</td>
+                                <td>Rajesh Kumar</td>
+                                <td>Mar 7, 9:00 AM</td>
+                                <td>₹349</td>
+                                <td><span class="badge badge-primary">In Progress</span></td>
+                                <td><button class="btn btn-outline btn-sm"
+                                        onclick="showToast('Tracking opened','info')">Track</button></td>
+                            </tr>
+                            <tr>
+                                <td>#PB-2831</td>
+                                <td>Drain Cleaning</td>
+                                <td>Suresh Patel</td>
+                                <td>Feb 28</td>
+                                <td>₹399</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                                <td><button class="btn btn-outline btn-sm"
+                                        onclick="showToast('Review submitted!','success')">Rate</button></td>
+                            </tr>
+                            <tr>
+                                <td>#PB-2819</td>
+                                <td>Tap Replacement</td>
+                                <td>Anand Sharma</td>
+                                <td>Feb 15</td>
+                                <td>₹450</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                                <td><button class="btn btn-outline btn-sm">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>#PB-2804</td>
+                                <td>Water Heater</td>
+                                <td>Rajesh Kumar</td>
+                                <td>Jan 22</td>
+                                <td>₹550</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                                <td><button class="btn btn-outline btn-sm">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>#PB-2790</td>
+                                <td>Tank Cleaning</td>
+                                <td>Suresh Patel</td>
+                                <td>Jan 5</td>
+                                <td>₹899</td>
+                                <td><span class="badge badge-danger">Cancelled</span></td>
+                                <td><button class="btn btn-primary btn-sm"
+                                        onclick="window.location.href='booking.html'">Rebook</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Payments -->
+            <div id="payments" style="margin-top:36px">
+                <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:16px">💳 Payment History</h2>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Service</th>
+                                <th>Method</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Feb 28</td>
+                                <td>Drain Cleaning</td>
+                                <td>📱 UPI</td>
+                                <td>₹399</td>
+                                <td><span class="badge badge-success">Paid</span></td>
+                            </tr>
+                            <tr>
+                                <td>Feb 15</td>
+                                <td>Tap Replacement</td>
+                                <td>💳 Card</td>
+                                <td>₹450</td>
+                                <td><span class="badge badge-success">Paid</span></td>
+                            </tr>
+                            <tr>
+                                <td>Jan 22</td>
+                                <td>Water Heater</td>
+                                <td>📱 UPI</td>
+                                <td>₹550</td>
+                                <td><span class="badge badge-success">Paid</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mar 7</td>
+                                <td>Pipe Leak</td>
+                                <td>💵 Cash</td>
+                                <td>₹349</td>
+                                <td><span class="badge badge-warning">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Saved Addresses -->
+            <div id="addresses" style="margin-top:36px">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+                    <h2 style="font-size:1.2rem;font-weight:800">🏠 Saved Addresses</h2>
+                    <button class="btn btn-outline btn-sm" onclick="showToast('Add address form opened','info')">+ Add
+                        New</button>
+                </div>
+                <div class="grid-2" style="gap:16px">
+                    <div class="card" style="padding:20px;border-color:var(--primary)">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span
+                                class="badge badge-primary">🏠 Home • Default</span><button
+                                class="btn btn-outline btn-sm" onclick="showToast('Edit address','info')">Edit</button>
+                        </div>
+                        <div style="font-weight:600;margin-bottom:4px">Flat 4B, Sunrise Towers</div>
+                        <div style="font-size:0.85rem;color:var(--text-secondary)">MG Road, Andheri West, Mumbai —
+                            400058</div>
+                    </div>
+                    <div class="card" style="padding:20px">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span
+                                class="badge badge-warning">🏢 Work</span><button class="btn btn-outline btn-sm"
+                                onclick="showToast('Edit address','info')">Edit</button></div>
+                        <div style="font-weight:600;margin-bottom:4px">Floor 3, TechHub Office</div>
+                        <div style="font-size:0.85rem;color:var(--text-secondary)">Powai, Mumbai — 400076</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loyalty Rewards -->
+            <div id="rewards" style="margin-top:36px">
+                <h2 style="font-size:1.2rem;font-weight:800;margin-bottom:16px">🏆 Loyalty Rewards</h2>
+                <div class="rewards-card">
+                    <div
+                        style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+                        <div>
+                            <div
+                                style="font-size:2rem;font-weight:900;font-family:'Outfit',sans-serif;color:var(--accent-light)">
+                                480 <span
+                                    style="font-size:1rem;font-weight:500;color:var(--text-secondary)">Points</span>
+                            </div>
+                            <div style="font-size:0.85rem;color:var(--text-secondary)">≈ ₹48 reward value</div>
+                        </div>
+                        <div style="text-align:right">
+                            <div style="font-size:0.85rem;color:var(--text-secondary)">Next tier: Gold (520 pts)</div>
+                            <span class="badge badge-warning" style="margin-top:6px">🥈 Silver Member</span>
+                        </div>
+                    </div>
+                    <div class="rewards-bar">
+                        <div class="rewards-fill" style="width:72%"></div>
+                    </div>
+                    <div
+                        style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text-muted);margin-bottom:16px">
+                        <span>0</span><span>480 pts (72%)</span><span>Gold: 520 pts</span></div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap">
+                        <button class="btn btn-accent btn-sm"
+                            onclick="showToast('₹48 coupon applied to your next booking!','success')">🎁 Redeem ₹48
+                            Off</button>
+                        <button class="btn btn-outline btn-sm" onclick="showToast('Reward history opened','info')">View
+                            History</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-bubble">
+        <button class="chatbot-btn" id="chatbotBtn">💬<span class="chatbot-notif">1</span></button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-av">🤖</div>
+                <div>
+                    <div class="chatbot-name">PlumBot AI</div>
+                    <div class="chatbot-status"><span class="status-dot status-online"></span>Online</div>
+                </div><button class="chatbot-close" id="chatbotClose">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-msg bot">Hi Priya! Need help with your booking? <div class="quick-replies"><span
+                            class="quick-reply">cancel</span><span class="quick-reply">warranty</span><span
+                            class="quick-reply">payment</span></div>
+                </div>
+            </div>
+            <div class="chatbot-input-row"><input type="text" class="chatbot-input" id="chatbotInput"
+                    placeholder="Type a message..."><button class="chatbot-send" id="chatbotSend">→</button></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Sidebar navigation
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (this.getAttribute('href')?.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    const target = document.querySelector(this.getAttribute('href'));
+                    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

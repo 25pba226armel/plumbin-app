@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Book a verified plumber on PlumBit — select service, date, address and confirm in minutes.">
+    <title>Book a Plumber — PlumBit</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <div class="container navbar-container">
+                <a href="index.html" class="navbar-brand">
+                    <div class="brand-icon">🔧</div><span class="brand-name">PlumBit</span>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="booking.html" class="nav-link active">Book Now</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="nav-right">
+                    <button class="nav-search-btn" id="searchBtn">🔍</button>
+                    <a href="login.html" class="btn btn-outline btn-sm hide-mobile">Login</a>
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+        <a href="services.html" class="mobile-nav-link">🔧 Services</a>
+        <a href="booking.html" class="mobile-nav-link active">📅 Book Now</a>
+        <a href="about.html" class="mobile-nav-link">ℹ️ About</a>
+        <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+        <div class="mobile-divider"></div>
+        <div class="mobile-auth"><a href="login.html" class="btn btn-outline btn-sm">Login</a></div>
+    </div>
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="searchClose">✕</button>
+        <div class="search-box"><input type="search" class="search-input-big" id="searchInputBig"
+                placeholder="Search services..."><span class="search-icon-big">🔍</span>
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+    </div>
+
+    <div class="page-hero" style="padding-top:110px;padding-bottom:40px">
+        <div class="container">
+            <h1>Book a <span class="gradient-text">Plumber</span></h1>
+            <p>Complete your booking in 5 simple steps — takes under 60 seconds</p>
+        </div>
+    </div>
+
+    <section style="padding:0 0 80px">
+        <div class="container">
+            <!-- Step Indicator -->
+            <div class="booking-steps-header">
+                <div class="steps" style="max-width:600px;margin:0 auto 16px">
+                    <div class="step-item active">
+                        <div class="step-circle">1</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-circle">2</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-circle">3</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-circle">4</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-circle">5</div>
+                        <div class="step-line" style="display:none"></div>
+                    </div>
+                </div>
+                <div style="text-align:center;color:var(--text-secondary);font-size:0.85rem" id="stepIndicator">Step 1
+                    of 5</div>
+            </div>
+
+            <div class="booking-layout">
+                <!-- Left: Steps Content -->
+                <div>
+                    <!-- Step 1: Select Service -->
+                    <div class="booking-step-content active" id="step1">
+                        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Select a Service</h2>
+                        <p style="color:var(--text-secondary);margin-bottom:24px">What do you need help with today?</p>
+                        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:2px solid var(--border-subtle);border-radius:var(--radius-md);cursor:pointer;transition:var(--transition)"
+                                onmouseover="this.style.borderColor='var(--primary)'"
+                                onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='var(--border-subtle)'">
+                                <input type="radio" name="service" value="pipe" style="accent-color:var(--primary)">
+                                <span style="font-size:1.2rem">💧</span>
+                                <div>
+                                    <div style="font-weight:600;font-size:0.9rem">Pipe Leak Repair</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">From ₹299</div>
+                                </div>
+                            </label>
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:2px solid var(--border-subtle);border-radius:var(--radius-md);cursor:pointer;transition:var(--transition)"
+                                onmouseover="this.style.borderColor='var(--primary)'"
+                                onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='var(--border-subtle)'">
+                                <input type="radio" name="service" value="tap" style="accent-color:var(--primary)">
+                                <span style="font-size:1.2rem">🚿</span>
+                                <div>
+                                    <div style="font-weight:600;font-size:0.9rem">Tap Replacement</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">From ₹399</div>
+                                </div>
+                            </label>
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:2px solid var(--border-subtle);border-radius:var(--radius-md);cursor:pointer;transition:var(--transition)"
+                                onmouseover="this.style.borderColor='var(--primary)'"
+                                onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='var(--border-subtle)'">
+                                <input type="radio" name="service" value="bath" style="accent-color:var(--primary)">
+                                <span style="font-size:1.2rem">🛁</span>
+                                <div>
+                                    <div style="font-weight:600;font-size:0.9rem">Bathroom Install</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">From ₹999</div>
+                                </div>
+                            </label>
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:2px solid var(--border-subtle);border-radius:var(--radius-md);cursor:pointer;transition:var(--transition)"
+                                onmouseover="this.style.borderColor='var(--primary)'"
+                                onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='var(--border-subtle)'">
+                                <input type="radio" name="service" value="drain" style="accent-color:var(--primary)">
+                                <span style="font-size:1.2rem">🌀</span>
+                                <div>
+                                    <div style="font-weight:600;font-size:0.9rem">Drain Cleaning</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">From ₹349</div>
+                                </div>
+                            </label>
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:2px solid var(--border-subtle);border-radius:var(--radius-md);cursor:pointer;transition:var(--transition)"
+                                onmouseover="this.style.borderColor='var(--primary)'"
+                                onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='var(--border-subtle)'">
+                                <input type="radio" name="service" value="heater" style="accent-color:var(--primary)">
+                                <span style="font-size:1.2rem">🔥</span>
+                                <div>
+                                    <div style="font-weight:600;font-size:0.9rem">Water Heater</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">From ₹449</div>
+                                </div>
+                            </label>
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:2px solid rgba(239,68,68,0.3);border-radius:var(--radius-md);cursor:pointer;transition:var(--transition)"
+                                onmouseover="this.style.borderColor='var(--danger)'"
+                                onmouseout="if(!this.querySelector('input').checked)this.style.borderColor='rgba(239,68,68,0.3)'">
+                                <input type="radio" name="service" value="emergency" style="accent-color:var(--danger)">
+                                <span style="font-size:1.2rem">🚨</span>
+                                <div>
+                                    <div style="font-weight:600;font-size:0.9rem">Emergency 24/7</div>
+                                    <div style="font-size:0.78rem;color:var(--danger)">From ₹599 • Urgent</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Date & Time -->
+                    <div class="booking-step-content" id="step2">
+                        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Choose Date & Time</h2>
+                        <p style="color:var(--text-secondary);margin-bottom:24px">Select a convenient slot for your
+                            appointment</p>
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:14px;color:var(--text-secondary)">
+                            DATE</h3>
+                        <div class="date-grid">
+                            <div class="date-item">
+                                <div class="date-day">Thu</div>
+                                <div class="date-num">6</div>
+                            </div>
+                            <div class="date-item selected">
+                                <div class="date-day">Fri</div>
+                                <div class="date-num">7</div>
+                            </div>
+                            <div class="date-item">
+                                <div class="date-day">Sat</div>
+                                <div class="date-num">8</div>
+                            </div>
+                            <div class="date-item">
+                                <div class="date-day">Sun</div>
+                                <div class="date-num">9</div>
+                            </div>
+                            <div class="date-item">
+                                <div class="date-day">Mon</div>
+                                <div class="date-num">10</div>
+                            </div>
+                        </div>
+                        <h3 style="font-size:0.95rem;font-weight:700;margin:20px 0 14px;color:var(--text-secondary)">
+                            TIME SLOT</h3>
+                        <div class="time-grid">
+                            <div class="time-slot unavailable">8:00 AM</div>
+                            <div class="time-slot selected">9:00 AM</div>
+                            <div class="time-slot">10:00 AM</div>
+                            <div class="time-slot">11:00 AM</div>
+                            <div class="time-slot unavailable">12:00 PM</div>
+                            <div class="time-slot">2:00 PM</div>
+                            <div class="time-slot">3:00 PM</div>
+                            <div class="time-slot">4:00 PM</div>
+                            <div class="time-slot">5:00 PM</div>
+                        </div>
+                        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:12px">🔴 Slots marked in grey are
+                            already booked</p>
+                    </div>
+
+                    <!-- Step 3: Address -->
+                    <div class="booking-step-content" id="step3">
+                        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Add Home Address</h2>
+                        <p style="color:var(--text-secondary);margin-bottom:24px">Where should the plumber come?</p>
+                        <div style="display:flex;flex-direction:column;gap:16px">
+                            <div style="display:flex;gap:12px;align-items:center;padding:14px 18px;background:rgba(14,165,233,0.06);border:1.5px solid var(--border-glass);border-radius:var(--radius-md);cursor:pointer"
+                                onclick="showToast('📍 Fetching your GPS location...','info')">
+                                <span style="font-size:1.3rem">📍</span>
+                                <div>
+                                    <div style="font-weight:600;font-size:0.9rem">Use Current Location</div>
+                                    <div style="font-size:0.78rem;color:var(--text-secondary)">GPS auto-detect your
+                                        address</div>
+                                </div>
+                                <span
+                                    style="margin-left:auto;color:var(--primary);font-size:0.85rem;font-weight:600">Detect
+                                    →</span>
+                            </div>
+                            <div class="divider-text">or enter manually</div>
+                            <div class="form-group">
+                                <label class="form-label">Flat / House Number</label>
+                                <input type="text" class="form-input" placeholder="e.g. Flat 4B, Sunrise Towers">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Street &amp; Area</label>
+                                <input type="text" class="form-input" placeholder="e.g. MG Road, Andheri West">
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                                <div class="form-group">
+                                    <label class="form-label">City</label>
+                                    <select class="form-input">
+                                        <option>Mumbai</option>
+                                        <option>Delhi</option>
+                                        <option>Bangalore</option>
+                                        <option>Chennai</option>
+                                        <option>Hyderabad</option>
+                                        <option>Pune</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Pincode</label>
+                                    <input type="text" class="form-input" placeholder="400001" maxlength="6">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Landmark (Optional)</label>
+                                <input type="text" class="form-input" placeholder="e.g. Near Reliance Mart">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Address Type</label>
+                                <div style="display:flex;gap:10px">
+                                    <label
+                                        style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer"><input
+                                            type="radio" name="addrType" value="home" checked
+                                            style="accent-color:var(--primary)"> 🏠 Home</label>
+                                    <label
+                                        style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer"><input
+                                            type="radio" name="addrType" value="work"
+                                            style="accent-color:var(--primary)"> 🏢 Work</label>
+                                    <label
+                                        style="display:flex;align-items:center;gap:6px;font-size:0.875rem;cursor:pointer"><input
+                                            type="radio" name="addrType" value="other"
+                                            style="accent-color:var(--primary)"> 📍 Other</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Choose Plumber -->
+                    <div class="booking-step-content" id="step4">
+                        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Available Plumbers Nearby</h2>
+                        <p style="color:var(--text-secondary);margin-bottom:24px">Choose from verified plumbers near
+                            your location</p>
+
+                        <div class="plumber-option selected" data-rate="349">
+                            <div class="plumber-option-av">👷</div>
+                            <div style="flex:1">
+                                <div style="font-weight:700">Rajesh Kumar</div>
+                                <div style="font-size:0.8rem;color:var(--text-secondary)">4.9⭐ (847 reviews) • 12 yrs
+                                    exp</div>
+                                <div style="font-size:0.78rem;color:var(--success);margin-top:3px">📍 1.2 km away • ~15
+                                    min arrival</div>
+                            </div>
+                            <div style="text-align:right">
+                                <div style="font-weight:700;color:var(--primary-light)">₹349</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted)">service fee</div>
+                                <span class="badge badge-success" style="margin-top:4px">Selected</span>
+                            </div>
+                        </div>
+
+                        <div class="plumber-option" data-rate="399">
+                            <div class="plumber-option-av">👷</div>
+                            <div style="flex:1">
+                                <div style="font-weight:700">Suresh Patel</div>
+                                <div style="font-size:0.8rem;color:var(--text-secondary)">4.8⭐ (623 reviews) • 8 yrs exp
+                                </div>
+                                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:3px">📍 2.8 km away •
+                                    ~30 min arrival</div>
+                            </div>
+                            <div style="text-align:right">
+                                <div style="font-weight:700;color:var(--primary-light)">₹399</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted)">service fee</div>
+                            </div>
+                        </div>
+
+                        <div class="plumber-option" data-rate="449">
+                            <div class="plumber-option-av">👷</div>
+                            <div style="flex:1">
+                                <div style="font-weight:700">Anand Sharma</div>
+                                <div style="font-size:0.8rem;color:var(--text-secondary)">4.95⭐ (1,204 reviews) • 15 yrs
+                                    exp</div>
+                                <div style="font-size:0.78rem;color:var(--warning);margin-top:3px">📍 3.5 km away •
+                                    Available at 4:00 PM</div>
+                            </div>
+                            <div style="text-align:right">
+                                <div style="font-weight:700;color:var(--primary-light)">₹449</div>
+                                <div style="font-size:0.75rem;color:var(--text-muted)">service fee</div>
+                                <span class="badge badge-accent" style="margin-top:4px">Top Rated</span>
+                            </div>
+                        </div>
+
+                        <!-- Map Placeholder -->
+                        <div class="map-placeholder">
+                            <div class="map-dot"></div>
+                            <p>Showing plumbers near your location</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Confirm -->
+                    <div class="booking-step-content" id="step5">
+                        <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Confirm Booking</h2>
+                        <p style="color:var(--text-secondary);margin-bottom:24px">Review your booking details and select
+                            payment method</p>
+                        <div class="card" style="margin-bottom:20px">
+                            <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--text-secondary)">📋
+                                BOOKING SUMMARY</h3>
+                            <div style="display:flex;flex-direction:column;gap:12px;font-size:0.9rem">
+                                <div style="display:flex;justify-content:space-between"><span
+                                        style="color:var(--text-secondary)">Service</span><span
+                                        style="font-weight:600">Pipe Leak Repair</span></div>
+                                <div style="display:flex;justify-content:space-between"><span
+                                        style="color:var(--text-secondary)">Date &amp; Time</span><span
+                                        style="font-weight:600">Mar 7, 9:00 AM</span></div>
+                                <div style="display:flex;justify-content:space-between"><span
+                                        style="color:var(--text-secondary)">Plumber</span><span
+                                        style="font-weight:600">Rajesh Kumar ⭐4.9</span></div>
+                                <div style="display:flex;justify-content:space-between"><span
+                                        style="color:var(--text-secondary)">Address</span><span
+                                        style="font-weight:600;max-width:200px;text-align:right">Flat 4B, Sunrise
+                                        Towers, Andheri</span></div>
+                            </div>
+                        </div>
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:14px;color:var(--text-secondary)">💳
+                            PAYMENT METHOD</h3>
+                        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg-card);border:2px solid var(--primary);border-radius:var(--radius-md);cursor:pointer">
+                                <input type="radio" name="payment" value="upi" checked
+                                    style="accent-color:var(--primary)">
+                                <span style="font-size:1.1rem">📱</span> <span style="font-weight:600">UPI</span><span
+                                    style="margin-left:auto;font-size:0.8rem;color:var(--success)">Recommended</span>
+                            </label>
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg-card);border:2px solid var(--border-subtle);border-radius:var(--radius-md);cursor:pointer">
+                                <input type="radio" name="payment" value="card" style="accent-color:var(--primary)">
+                                <span style="font-size:1.1rem">💳</span> <span style="font-weight:600">Debit / Credit
+                                    Card</span>
+                            </label>
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg-card);border:2px solid var(--border-subtle);border-radius:var(--radius-md);cursor:pointer">
+                                <input type="radio" name="payment" value="wallet" style="accent-color:var(--primary)">
+                                <span style="font-size:1.1rem">👜</span> <span style="font-weight:600">Wallet / Net
+                                    Banking</span>
+                            </label>
+                            <label
+                                style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--bg-card);border:2px solid var(--border-subtle);border-radius:var(--radius-md);cursor:pointer">
+                                <input type="radio" name="payment" value="cod" style="accent-color:var(--primary)">
+                                <span style="font-size:1.1rem">💵</span> <span style="font-weight:600">Pay After Service
+                                    (Cash)</span>
+                            </label>
+                        </div>
+                        <div
+                            style="display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:16px">
+                            <input type="checkbox" checked style="margin-top:2px;accent-color:var(--primary)">
+                            <span>I agree to the <a href="#" style="color:var(--primary)">Terms of Service</a>. Payment
+                                is secured. 🔒 SSL Encrypted.</span>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div style="display:flex;gap:12px;margin-top:28px;align-items:center">
+                        <button id="prevBtn" class="btn btn-outline hidden" style="min-width:120px">← Back</button>
+                        <button id="nextBtn" class="btn btn-primary btn-lg"
+                            style="flex:1;justify-content:center">Continue →</button>
+                    </div>
+                </div>
+
+                <!-- Right: Price Summary -->
+                <div>
+                    <div class="price-estimate-card">
+                        <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px">💰 Price Estimate</h3>
+                        <div class="price-row"><span>Service Charge</span><span class="price-value"
+                                id="serviceCost">₹349</span></div>
+                        <div class="price-row"><span>Visit / Inspection Fee</span><span>₹49</span></div>
+                        <div class="price-row"><span>Materials (if needed)</span><span
+                                style="color:var(--text-muted)">On actuals</span></div>
+                        <div class="price-row"><span>Platform Fee</span><span>₹0</span></div>
+                        <div class="divider"></div>
+                        <div class="price-row total"><span>Total Estimate</span><span class="price-value"
+                                id="totalCost">₹398</span></div>
+                        <p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px">Final price may vary based
+                            on actual work. You pay only after service completion.</p>
+                        <div
+                            style="margin-top:16px;padding:12px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-md)">
+                            <div style="font-size:0.82rem;color:var(--success);font-weight:600">🛡️ Service Warranty
+                            </div>
+                            <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:3px">30-day warranty on
+                                all completed work</div>
+                        </div>
+                        <div
+                            style="margin-top:12px;padding:12px;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.2);border-radius:var(--radius-md)">
+                            <div style="font-size:0.82rem;color:var(--accent-light);font-weight:600">🏆 Pro Member? Save
+                                25%</div>
+                            <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:3px"><a href="#"
+                                    style="color:var(--accent-light)">Subscribe to Pro Plan →</a></div>
+                        </div>
+
+                        <div style="border-top:1px solid var(--border-subtle);margin-top:20px;padding-top:20px">
+                            <h4
+                                style="font-size:0.85rem;font-weight:700;margin-bottom:12px;color:var(--text-secondary)">
+                                📸 UPLOAD ISSUE PHOTO</h4>
+                            <div style="border:2px dashed var(--border-glass);border-radius:var(--radius-md);padding:20px;text-align:center;cursor:pointer"
+                                id="photoUploadArea" onclick="document.getElementById('photoInput').click()">
+                                <div style="font-size:1.5rem;margin-bottom:6px">📷</div>
+                                <div style="font-size:0.8rem;color:var(--text-secondary)">Help plumber understand the
+                                    issue</div>
+                                <input type="file" id="photoInput" accept="image/*" multiple style="display:none">
+                            </div>
+                            <div id="photoPreview" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-bubble">
+        <button class="chatbot-btn" id="chatbotBtn">💬<span class="chatbot-notif">1</span></button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-av">🤖</div>
+                <div>
+                    <div class="chatbot-name">PlumBot AI</div>
+                    <div class="chatbot-status"><span class="status-dot status-online"></span>Online</div>
+                </div><button class="chatbot-close" id="chatbotClose">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-msg bot">I can help you pick the right service! <div class="quick-replies"><span
+                            class="quick-reply">💰 Pricing</span><span class="quick-reply">🚨 Emergency</span></div>
+                </div>
+            </div>
+            <div class="chatbot-input-row"><input type="text" class="chatbot-input" id="chatbotInput"
+                    placeholder="Type a message..."><button class="chatbot-send" id="chatbotSend">→</button></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('prevBtn')?.classList.add('hidden');
+        document.querySelectorAll('input[name="service"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                const prices = { pipe: 349, tap: 399, bath: 999, drain: 349, heater: 449, emergency: 599 };
+                const rate = prices[radio.value] || 349;
+                document.getElementById('serviceCost').textContent = '₹' + rate;
+                document.getElementById('totalCost').textContent = '₹' + (rate + 49);
+            });
+        });
+    </script>
+    <style>
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</body>
+
+</html>

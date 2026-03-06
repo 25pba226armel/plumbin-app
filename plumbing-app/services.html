@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore all plumbing services offered by PlumBit — pipe repair, drain cleaning, water heater, emergency plumbing and more.">
+    <title>Services — PlumBit</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <div class="container navbar-container">
+                <a href="index.html" class="navbar-brand">
+                    <div class="brand-icon">🔧</div><span class="brand-name">PlumBit</span>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link active">Services</a>
+                    <a href="booking.html" class="nav-link">Book Now</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="nav-right">
+                    <button class="nav-search-btn" id="searchBtn">🔍</button>
+                    <button id="langToggle" class="btn btn-glass btn-sm hide-mobile">🌐 EN</button>
+                    <a href="login.html" class="btn btn-outline btn-sm hide-mobile">Login</a>
+                    <a href="booking.html" class="btn btn-primary btn-sm hide-mobile">Book Now 🪠</a>
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+        <a href="services.html" class="mobile-nav-link active">🔧 Services</a>
+        <a href="booking.html" class="mobile-nav-link">📅 Book Now</a>
+        <a href="about.html" class="mobile-nav-link">ℹ️ About</a>
+        <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+        <div class="mobile-divider"></div>
+        <div class="mobile-auth"><a href="login.html" class="btn btn-outline btn-sm">Login</a><a href="booking.html"
+                class="btn btn-primary btn-sm">Book Now</a></div>
+    </div>
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="searchClose">✕</button>
+        <div class="search-box"><input type="search" class="search-input-big" id="searchInputBig"
+                placeholder="Search plumbing services..."><span class="search-icon-big">🔍</span>
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="page-hero" style="padding-top:110px">
+        <div class="container">
+            <p class="badge badge-primary" style="margin:0 auto 14px;display:inline-flex;">🔧 Everything You Need</p>
+            <h1>Our <span class="gradient-text">Plumbing Services</span></h1>
+            <p>Professional plumbing solutions for every home need. Transparent pricing, guaranteed quality.</p>
+        </div>
+    </div>
+
+    <section class="section" style="padding-top:20px">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="services-filter-bar animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">⚡ All Services</button>
+                <button class="filter-btn" data-filter="repair">🔧 Repair</button>
+                <button class="filter-btn" data-filter="install">🛠️ Installation</button>
+                <button class="filter-btn" data-filter="cleaning">🧹 Cleaning</button>
+                <button class="filter-btn" data-filter="emergency">🚨 Emergency</button>
+                <button class="filter-btn" data-filter="heating">🔥 Heating</button>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-detail-grid animate-on-scroll">
+
+                <div class="service-detail-card" data-category="repair">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon" style="background:rgba(14,165,233,0.12)">💧</div>
+                        <div>
+                            <div class="service-detail-title">Pipe Leak Repair</div>
+                            <div class="service-detail-desc">Expert detection and repair of all types of pipe leaks —
+                                visible or hidden. We use advanced leak detection technology to locate and fix issues
+                                with minimal disruption.</div>
+                        </div>
+                    </div>
+                    <div class="service-meta-row">
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Starting Price</div>
+                            <div class="service-meta-value price">₹299</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Time Required</div>
+                            <div class="service-meta-value">1–3 hours</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Warranty</div>
+                            <div class="service-meta-value">30 days</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <span class="badge badge-primary">Most Booked</span>
+                        <span class="badge badge-success">Available 24/7</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:8px">📅 Book Service</a>
+                </div>
+
+                <div class="service-detail-card" data-category="repair">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon" style="background:rgba(249,115,22,0.12)">🚿</div>
+                        <div>
+                            <div class="service-detail-title">Tap & Faucet Replacement</div>
+                            <div class="service-detail-desc">Professional replacement and repair of taps, faucets,
+                                mixers, and shower fixtures. We handle all brands and models including premium fittings
+                                and concealed taps.</div>
+                        </div>
+                    </div>
+                    <div class="service-meta-row">
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Starting Price</div>
+                            <div class="service-meta-value price">₹399</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Time Required</div>
+                            <div class="service-meta-value">30 min – 1 hr</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Warranty</div>
+                            <div class="service-meta-value">30 days</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge badge-success">Quick
+                            Service</span></div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:8px">📅 Book Service</a>
+                </div>
+
+                <div class="service-detail-card" data-category="install">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon" style="background:rgba(34,197,94,0.12)">🛁</div>
+                        <div>
+                            <div class="service-detail-title">Bathroom Plumbing Installation</div>
+                            <div class="service-detail-desc">Complete bathroom plumbing setup including WC, basin,
+                                shower, bathtub, and all related pipework. New construction and renovation projects
+                                handled by experienced teams.</div>
+                        </div>
+                    </div>
+                    <div class="service-meta-row">
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Starting Price</div>
+                            <div class="service-meta-value price">₹999</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Time Required</div>
+                            <div class="service-meta-value">4–8 hours</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Warranty</div>
+                            <div class="service-meta-value">60 days</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge badge-accent">Premium
+                            Service</span></div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:8px">📅 Book Service</a>
+                </div>
+
+                <div class="service-detail-card" data-category="cleaning">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon" style="background:rgba(168,85,247,0.12)">🌀</div>
+                        <div>
+                            <div class="service-detail-title">Drain Cleaning</div>
+                            <div class="service-detail-desc">High-pressure drain cleaning and blockage removal for
+                                kitchen sinks, bathroom drains, floor drains and sewer lines. Uses hydro-jetting for
+                                stubborn clogs.</div>
+                        </div>
+                    </div>
+                    <div class="service-meta-row">
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Starting Price</div>
+                            <div class="service-meta-value price">₹349</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Time Required</div>
+                            <div class="service-meta-value">1–2 hours</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Warranty</div>
+                            <div class="service-meta-value">15 days</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge badge-primary">High
+                            Demand</span></div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:8px">📅 Book Service</a>
+                </div>
+
+                <div class="service-detail-card" data-category="heating">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon" style="background:rgba(234,179,8,0.12)">🔥</div>
+                        <div>
+                            <div class="service-detail-title">Water Heater Repair</div>
+                            <div class="service-detail-desc">Servicing, repair and installation of all types of water
+                                heaters — electric geysers, solar water heaters, gas water heaters and instant water
+                                heaters. All brands covered.</div>
+                        </div>
+                    </div>
+                    <div class="service-meta-row">
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Starting Price</div>
+                            <div class="service-meta-value price">₹449</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Time Required</div>
+                            <div class="service-meta-value">1–3 hours</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Warranty</div>
+                            <div class="service-meta-value">30 days</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge badge-warning">Seasonal
+                            High</span></div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:8px">📅 Book Service</a>
+                </div>
+
+                <div class="service-detail-card" data-category="cleaning">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon" style="background:rgba(236,72,153,0.12)">🪣</div>
+                        <div>
+                            <div class="service-detail-title">Water Tank Cleaning</div>
+                            <div class="service-detail-desc">Professional cleaning and disinfection of overhead and
+                                underground water tanks. Includes draining, scrubbing, disinfecting, and a final quality
+                                check for safe water.</div>
+                        </div>
+                    </div>
+                    <div class="service-meta-row">
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Starting Price</div>
+                            <div class="service-meta-value price">₹799</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Time Required</div>
+                            <div class="service-meta-value">2–4 hours</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Warranty</div>
+                            <div class="service-meta-value">15 days</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge badge-success">Health
+                            Essential</span></div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:8px">📅 Book Service</a>
+                </div>
+
+                <div class="service-detail-card" data-category="emergency"
+                    style="border-color:rgba(239,68,68,0.25);background:linear-gradient(135deg,var(--bg-card),rgba(239,68,68,0.04))">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon" style="background:rgba(239,68,68,0.12)">🚨</div>
+                        <div>
+                            <div class="service-detail-title">Emergency Plumbing 24/7</div>
+                            <div class="service-detail-desc">Round-the-clock emergency plumbing for burst pipes, major
+                                leaks, sewage overflow, and flood situations. Plumbers dispatched within 15 minutes of
+                                your call.</div>
+                        </div>
+                    </div>
+                    <div class="service-meta-row">
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Starting Price</div>
+                            <div class="service-meta-value price">₹599</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Response Time</div>
+                            <div class="service-meta-value">15–30 min</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Warranty</div>
+                            <div class="service-meta-value">30 days</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge badge-danger">🔴 24/7
+                            Available</span></div>
+                    <a href="booking.html" class="btn btn-accent"
+                        style="width:100%;justify-content:center;margin-top:8px">🚨 Book Emergency</a>
+                </div>
+
+                <div class="service-detail-card" data-category="install">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon" style="background:rgba(20,184,166,0.12)">🏗️</div>
+                        <div>
+                            <div class="service-detail-title">New Plumbing Installation</div>
+                            <div class="service-detail-desc">End-to-end new plumbing installation for new homes,
+                                offices, or major renovations. Includes pipe laying, fixture installation, and pressure
+                                testing. Detailed quote provided upfront.</div>
+                        </div>
+                    </div>
+                    <div class="service-meta-row">
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Starting Price</div>
+                            <div class="service-meta-value price">₹2,499</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Time Required</div>
+                            <div class="service-meta-value">1–3 days</div>
+                        </div>
+                        <div class="service-meta-item">
+                            <div class="service-meta-label">Warranty</div>
+                            <div class="service-meta-value">90 days</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge badge-primary">Free
+                            Quote</span><span class="badge badge-accent">Top Rated</span></div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:8px">📅 Book Service</a>
+                </div>
+            </div>
+
+            <!-- Photo Diagnosis Feature -->
+            <div class="animate-on-scroll"
+                style="margin-top:60px;background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(249,115,22,0.04));border:1px solid var(--border-glass);border-radius:var(--radius-xl);padding:40px">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+                    <div>
+                        <p class="badge badge-accent" style="margin-bottom:14px;display:inline-flex">🤖 AI Feature</p>
+                        <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:12px">Upload Photo for <span
+                                class="gradient-text">AI Diagnosis</span></h2>
+                        <p style="color:var(--text-secondary);margin-bottom:24px;line-height:1.7">Not sure what's wrong?
+                            Upload a photo of your plumbing issue and our AI will identify the problem and recommend the
+                            best service instantly.</p>
+                        <div id="photoUploadArea"
+                            style="border:2px dashed var(--border-glass);border-radius:var(--radius-lg);padding:32px;text-align:center;cursor:pointer;transition:var(--transition)"
+                            onmouseover="this.style.borderColor='var(--primary)'"
+                            onmouseout="this.style.borderColor='var(--border-glass)'">
+                            <div style="font-size:2.5rem;margin-bottom:10px">📸</div>
+                            <div style="font-weight:600;margin-bottom:4px">Click or drag photos here</div>
+                            <div style="font-size:0.82rem;color:var(--text-muted)">JPG, PNG up to 10MB</div>
+                            <input type="file" id="photoInput" accept="image/*" multiple style="display:none">
+                        </div>
+                        <div id="photoPreview" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px"></div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:16px">
+                        <div class="card-glass" style="padding:20px">
+                            <div style="font-size:1.4rem;margin-bottom:8px">🔍</div>
+                            <div style="font-weight:700;margin-bottom:4px">Smart Issue Detection</div>
+                            <div style="font-size:0.85rem;color:var(--text-secondary)">AI identifies leaks, corrosion,
+                                blockages, and damage from your photos</div>
+                        </div>
+                        <div class="card-glass" style="padding:20px">
+                            <div style="font-size:1.4rem;margin-bottom:8px">💰</div>
+                            <div style="font-weight:700;margin-bottom:4px">Instant Price Estimate</div>
+                            <div style="font-size:0.85rem;color:var(--text-secondary)">Get a cost estimate even before
+                                speaking to a plumber</div>
+                        </div>
+                        <div class="card-glass" style="padding:20px">
+                            <div style="font-size:1.4rem;margin-bottom:8px">⚡</div>
+                            <div style="font-weight:700;margin-bottom:4px">Match to Right Plumber</div>
+                            <div style="font-size:0.85rem;color:var(--text-secondary)">Get matched with the specialist
+                                best suited for your issue</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+                            <div class="brand-icon">🔧</div><span
+                                style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:var(--text-primary)">PlumBit</span>
+                        </div>
+                        <p>India's most trusted online plumbing service platform.</p>
+                        <div class="social-links"><a href="#" class="social-link">𝕏</a><a href="#"
+                                class="social-link">f</a><a href="#" class="social-link">in</a></div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <div class="footer-links"><a href="services.html" class="footer-link">Pipe Leak Repair</a><a
+                                href="services.html" class="footer-link">Drain Cleaning</a><a href="services.html"
+                                class="footer-link">Water Heater</a><a href="services.html"
+                                class="footer-link">Emergency 24/7</a></div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <div class="footer-links"><a href="about.html" class="footer-link">About Us</a><a
+                                href="contact.html" class="footer-link">Contact</a><a href="#"
+                                class="footer-link">Blog</a></div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span>1800-PLUMBIT</div>
+                        <div class="footer-contact-item"><span class="footer-contact-icon">✉️</span>support@plumbit.in
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 PlumBit Technologies Pvt. Ltd.</p>
+                <div class="footer-badges"><span class="footer-badge">🔒 SSL Secured</span><span class="footer-badge">✅
+                        ISO Certified</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-bubble">
+        <button class="chatbot-btn" id="chatbotBtn">💬<span class="chatbot-notif">1</span></button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-av">🤖</div>
+                <div>
+                    <div class="chatbot-name">PlumBot AI</div>
+                    <div class="chatbot-status"><span class="status-dot status-online"></span>Online</div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-msg bot">Which service do you need? I can help you choose! <div class="quick-replies">
+                        <span class="quick-reply">pipe</span><span class="quick-reply">drain</span><span
+                            class="quick-reply">emergency</span><span class="quick-reply">price</span></div>
+                </div>
+            </div>
+            <div class="chatbot-input-row">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message...">
+                <button class="chatbot-send" id="chatbotSend">→</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

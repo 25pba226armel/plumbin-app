@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="PlumBit — Book trusted, verified plumbers in minutes. Fast, affordable home plumbing services at your doorstep.">
+    <title>PlumBit — Home Plumbing Services</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <div class="container navbar-container">
+                <a href="index.html" class="navbar-brand">
+                    <div class="brand-icon">🔧</div>
+                    <span class="brand-name">PlumBit</span>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="booking.html" class="nav-link">Book Now</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="nav-right">
+                    <button class="nav-search-btn" id="searchBtn">🔍</button>
+                    <button id="langToggle" class="btn btn-glass btn-sm hide-mobile">🌐 EN</button>
+                    <a href="login.html" class="btn btn-outline btn-sm hide-mobile">Login</a>
+                    <a href="booking.html" class="btn btn-primary btn-sm hide-mobile">Book Now 🪠</a>
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link active">🏠 Home</a>
+        <a href="services.html" class="mobile-nav-link">🔧 Services</a>
+        <a href="booking.html" class="mobile-nav-link">📅 Book Now</a>
+        <a href="about.html" class="mobile-nav-link">ℹ️ About</a>
+        <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+        <div class="mobile-divider"></div>
+        <a href="customer-dashboard.html" class="mobile-nav-link">👤 Dashboard</a>
+        <button id="mobileSearchBtn" class="mobile-nav-link"
+            style="text-align:left;background:none;border:none;cursor:pointer;color:var(--text-secondary);font-size:inherit;padding:12px 16px;width:100%;">🔍
+            Search Services</button>
+        <div class="mobile-divider"></div>
+        <div class="mobile-auth">
+            <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+            <a href="booking.html" class="btn btn-primary btn-sm">Book Now</a>
+        </div>
+    </div>
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="searchClose">✕</button>
+        <div class="search-box">
+            <input type="search" class="search-input-big" id="searchInputBig" placeholder="Search plumbing services...">
+            <span class="search-icon-big">🔍</span>
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="assets/hero-banner.jpg" alt="Professional plumber at work" onerror="this.style.display='none'">
+        </div>
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    🇮🇳 Trusted by 50,000+ Homeowners Across India
+                </div>
+                <h1>Your Reliable <span class="gradient-text">Plumber</span> is Just a Tap Away</h1>
+                <p>Connect with verified, background-checked plumbers in your city. Fast booking, transparent pricing,
+                    service warranty — all in one platform.</p>
+                <div class="hero-actions">
+                    <a href="booking.html" class="btn btn-primary btn-lg">🪠 Book a Plumber Now</a>
+                    <a href="services.html" class="btn btn-glass btn-lg">View Services →</a>
+                </div>
+                <div class="hero-search">
+                    <span>🔍</span>
+                    <input type="text" class="hero-search-input" placeholder="What service do you need?"
+                        id="heroSearch">
+                    <a href="services.html" class="btn btn-primary btn-sm">Search</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-count="50000" data-suffix="+">0</div>
+                        <div class="hero-stat-label">Happy Customers</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-count="500" data-suffix="+">0</div>
+                        <div class="hero-stat-label">Verified Plumbers</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-count="25" data-suffix="+ Cities">0</div>
+                        <div class="hero-stat-label">Cities Covered</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">4.9⭐</div>
+                        <div class="hero-stat-label">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Floating info cards -->
+        <div class="hero-card-float">
+            <div class="hero-float-card" style="animation-delay:0s">
+                <div class="float-icon float-icon-blue">✅</div>
+                <div class="float-info">
+                    <div class="float-label">Booking Confirmed</div>
+                    <div class="float-value">Rajesh — Pipe Leak Repair</div>
+                </div>
+            </div>
+            <div class="hero-float-card" style="animation-delay:0.8s">
+                <div class="float-icon float-icon-green">⭐</div>
+                <div class="float-info">
+                    <div class="float-label">Just Now</div>
+                    <div class="float-value">Priya rated 5 ⭐ — Mumbai</div>
+                </div>
+            </div>
+            <div class="hero-float-card" style="animation-delay:1.6s">
+                <div class="float-icon float-icon-orange">🚨</div>
+                <div class="float-info">
+                    <div class="float-label">Emergency</div>
+                    <div class="float-value">Plumber en route — 15 min</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR SERVICES -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center animate-on-scroll">
+                <p class="badge badge-primary" style="margin:0 auto 14px;display:inline-flex;">🔧 Our Services</p>
+                <h2 class="section-title">Popular <span class="gradient-text">Plumbing Services</span></h2>
+                <p class="section-subtitle" style="margin:0 auto 48px;">Everything your home needs — from quick fixes to
+                    full installations</p>
+            </div>
+            <div class="services-grid animate-on-scroll">
+                <a href="services.html" class="service-card">
+                    <div class="service-icon service-icon-1">💧</div>
+                    <h3>Pipe Leak Repair</h3>
+                    <p>Fast, reliable leak detection and repair</p>
+                    <div class="service-price">From ₹299</div>
+                </a>
+                <a href="services.html" class="service-card">
+                    <div class="service-icon service-icon-2">🚿</div>
+                    <h3>Tap & Faucet</h3>
+                    <p>Replacement and installation of all tap types</p>
+                    <div class="service-price">From ₹399</div>
+                </a>
+                <a href="services.html" class="service-card">
+                    <div class="service-icon service-icon-3">🛁</div>
+                    <h3>Bathroom Plumbing</h3>
+                    <p>Complete bathroom plumbing installation</p>
+                    <div class="service-price">From ₹999</div>
+                </a>
+                <a href="services.html" class="service-card">
+                    <div class="service-icon service-icon-4">🌀</div>
+                    <h3>Drain Cleaning</h3>
+                    <p>Unclog drains and prevent blockages</p>
+                    <div class="service-price">From ₹349</div>
+                </a>
+                <a href="services.html" class="service-card">
+                    <div class="service-icon service-icon-5">🔥</div>
+                    <h3>Water Heater Repair</h3>
+                    <p>Geyser and water heater servicing</p>
+                    <div class="service-price">From ₹449</div>
+                </a>
+                <a href="services.html" class="service-card">
+                    <div class="service-icon service-icon-6">🪣</div>
+                    <h3>Tank Cleaning</h3>
+                    <p>Professional water tank cleaning service</p>
+                    <div class="service-price">From ₹799</div>
+                </a>
+                <a href="services.html" class="service-card">
+                    <div class="service-icon service-icon-7">🚨</div>
+                    <h3>Emergency 24/7</h3>
+                    <p>Round-the-clock emergency plumbing help</p>
+                    <div class="service-price">From ₹599</div>
+                </a>
+                <a href="services.html" class="service-card"
+                    style="background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(249,115,22,0.06));border-color:var(--border-glass)">
+                    <div class="service-icon service-icon-8">🔍</div>
+                    <h3>View All Services</h3>
+                    <p>Explore our complete service catalog</p>
+                    <div class="service-price" style="color:var(--accent-light)">See All →</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" style="background:linear-gradient(180deg,rgba(14,165,233,0.03),transparent);">
+        <div class="container text-center">
+            <p class="badge badge-primary" style="margin:0 auto 14px;display:inline-flex;">⚡ Simple & Fast</p>
+            <h2 class="section-title" style="margin-bottom:12px">Book in <span class="gradient-text">Under 1
+                    Minute</span></h2>
+            <p class="section-subtitle" style="margin:0 auto 52px">Getting a plumber has never been easier</p>
+            <div class="how-steps animate-on-scroll">
+                <div class="how-step-card">
+                    <div class="how-step-num">📍</div>
+                    <h3>Choose Service</h3>
+                    <p>Select from our 20+ plumbing services</p>
+                </div>
+                <div class="how-step-card">
+                    <div class="how-step-num">📅</div>
+                    <h3>Pick Date & Time</h3>
+                    <p>Schedule at your convenience, same day available</p>
+                </div>
+                <div class="how-step-card">
+                    <div class="how-step-num">👷</div>
+                    <h3>Get Matched</h3>
+                    <p>We find the best verified plumber near you</p>
+                </div>
+                <div class="how-step-card">
+                    <div class="how-step-num">✅</div>
+                    <h3>Job Done!</h3>
+                    <p>Pay after service, rate your experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMERGENCY BANNER -->
+    <section class="section-sm">
+        <div class="container animate-on-scroll">
+            <div class="emergency-banner">
+                <div class="flex gap-16" style="align-items:center;flex-wrap:wrap;gap:16px">
+                    <span class="emergency-icon">🚨</span>
+                    <div>
+                        <div class="emergency-title">Plumbing Emergency?</div>
+                        <div class="emergency-subtitle">We're available 24/7. Get a plumber at your door in 30–60
+                            minutes.</div>
+                    </div>
+                </div>
+                <div class="flex gap-16" style="align-items:center;gap:12px;flex-wrap:wrap">
+                    <div style="text-align:center">
+                        <div style="font-size:1.3rem;font-weight:800;color:var(--danger)">📞 1800-PLUMBIT</div>
+                        <div style="font-size:0.8rem;color:var(--text-muted)">Toll Free • 24/7</div>
+                    </div>
+                    <a href="booking.html" class="btn btn-accent btn-lg">🚨 Emergency Book</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PLUMBERS -->
+    <section class="section">
+        <div class="container">
+            <div class="flex-between animate-on-scroll" style="margin-bottom:36px;flex-wrap:wrap;gap:12px">
+                <div>
+                    <h2 class="section-title">Top Rated <span class="gradient-text">Plumbers</span></h2>
+                    <p class="section-subtitle" style="margin-bottom:0">Verified professionals with excellent reviews
+                    </p>
+                </div>
+                <a href="services.html" class="btn btn-outline">View All Plumbers →</a>
+            </div>
+            <div class="plumber-cards animate-on-scroll">
+                <div class="plumber-card">
+                    <div class="plumber-header">
+                        <div class="plumber-avatar">👷</div>
+                        <div>
+                            <div class="plumber-name">Rajesh Kumar</div>
+                            <div class="plumber-exp">12 years experience • Mumbai</div>
+                            <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+                                <span class="status-dot status-online"></span>
+                                <span style="font-size:0.78rem;color:var(--success)">Available Now</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plumber-rating">
+                        <span class="plumber-rating-val">4.9 ⭐</span>
+                        <span class="plumber-reviews">(847 reviews)</span>
+                    </div>
+                    <div class="plumber-services">
+                        <span class="plumber-service-tag">Pipe Repair</span>
+                        <span class="plumber-service-tag">Drain Cleaning</span>
+                        <span class="plumber-service-tag">Emergency</span>
+                    </div>
+                    <div class="plumber-meta">
+                        <span>🎖️ Verified</span>
+                        <span>📍 Andheri, Mumbai</span>
+                        <span>⏱️ ~20 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:16px">Book Rajesh</a>
+                </div>
+                <div class="plumber-card">
+                    <div class="plumber-header">
+                        <div class="plumber-avatar">👷</div>
+                        <div>
+                            <div class="plumber-name">Suresh Patel</div>
+                            <div class="plumber-exp">8 years experience • Delhi</div>
+                            <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+                                <span class="status-dot status-online"></span>
+                                <span style="font-size:0.78rem;color:var(--success)">Available Now</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plumber-rating">
+                        <span class="plumber-rating-val">4.8 ⭐</span>
+                        <span class="plumber-reviews">(623 reviews)</span>
+                    </div>
+                    <div class="plumber-services">
+                        <span class="plumber-service-tag">Bathroom Install</span>
+                        <span class="plumber-service-tag">Water Heater</span>
+                        <span class="plumber-service-tag">Tap Repair</span>
+                    </div>
+                    <div class="plumber-meta">
+                        <span>🎖️ Verified</span>
+                        <span>📍 Lajpat Nagar, Delhi</span>
+                        <span>⏱️ ~30 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary"
+                        style="width:100%;justify-content:center;margin-top:16px">Book Suresh</a>
+                </div>
+                <div class="plumber-card">
+                    <div class="plumber-header">
+                        <div class="plumber-avatar">👷</div>
+                        <div>
+                            <div class="plumber-name">Anand Sharma</div>
+                            <div class="plumber-exp">15 years experience • Bangalore</div>
+                            <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+                                <span class="status-dot status-busy"></span>
+                                <span style="font-size:0.78rem;color:var(--warning)">Busy — Available 4PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plumber-rating">
+                        <span class="plumber-rating-val">4.95 ⭐</span>
+                        <span class="plumber-reviews">(1,204 reviews)</span>
+                    </div>
+                    <div class="plumber-services">
+                        <span class="plumber-service-tag">Tank Cleaning</span>
+                        <span class="plumber-service-tag">Pipe Repair</span>
+                        <span class="plumber-service-tag">All Services</span>
+                    </div>
+                    <div class="plumber-meta">
+                        <span>🎖️ Top Rated</span>
+                        <span>📍 Indiranagar, BLR</span>
+                        <span>⏱️ ~45 min</span>
+                    </div>
+                    <a href="booking.html" class="btn btn-outline"
+                        style="width:100%;justify-content:center;margin-top:16px">Schedule Anand</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUBSCRIPTION PLANS -->
+    <section class="section" style="background:linear-gradient(180deg,transparent,rgba(14,165,233,0.04),transparent)">
+        <div class="container text-center">
+            <p class="badge badge-accent" style="margin:0 auto 14px;display:inline-flex;">💎 Save More</p>
+            <h2 class="section-title" style="margin-bottom:12px">Home <span class="gradient-text">Maintenance
+                    Plans</span></h2>
+            <p class="section-subtitle" style="margin:0 auto 48px">Save up to 40% with our subscription plans</p>
+            <div class="plans-grid animate-on-scroll">
+                <div class="plan-card">
+                    <div class="plan-name">Basic</div>
+                    <div class="plan-price">₹299<span>/month</span></div>
+                    <div class="plan-desc">Perfect for small households</div>
+                    <div class="plan-features">
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> 1 free visit/month</div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> 10% discount on services
+                        </div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> Priority support</div>
+                        <div class="plan-feature"><span class="plan-feature-x">✗</span> Emergency cover</div>
+                        <div class="plan-feature"><span class="plan-feature-x">✗</span> Loyalty rewards</div>
+                    </div>
+                    <a href="booking.html" class="btn btn-outline" style="width:100%;justify-content:center">Get
+                        Started</a>
+                </div>
+                <div class="plan-card popular">
+                    <div class="plan-popular-badge">⭐ Most Popular</div>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price"
+                        style="background:linear-gradient(135deg,var(--primary-light),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
+                        ₹699<span style="-webkit-text-fill-color:var(--text-secondary)">/month</span></div>
+                    <div class="plan-desc">Best for growing families</div>
+                    <div class="plan-features">
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> 3 free visits/month</div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> 25% discount on services
+                        </div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> Priority + live support
+                        </div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> Emergency cover</div>
+                        <div class="plan-feature"><span class="plan-feature-x">✗</span> Multi-home coverage</div>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary" style="width:100%;justify-content:center">Choose
+                        Pro</a>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-name">Elite</div>
+                    <div class="plan-price">₹1,299<span>/month</span></div>
+                    <div class="plan-desc">For businesses & large homes</div>
+                    <div class="plan-features">
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> Unlimited visits</div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> 40% discount on services
+                        </div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> Dedicated account manager
+                        </div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> Emergency cover 24/7</div>
+                        <div class="plan-feature"><span class="plan-feature-check">✔</span> Multi-home coverage</div>
+                    </div>
+                    <a href="booking.html" class="btn btn-accent" style="width:100%;justify-content:center">Go Elite</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center animate-on-scroll">
+                <p class="badge badge-primary" style="margin:0 auto 14px;display:inline-flex;">💬 Reviews</p>
+                <h2 class="section-title" style="margin-bottom:12px">What Our <span class="gradient-text">Customers
+                        Say</span></h2>
+                <p class="section-subtitle" style="margin:0 auto 48px">Real experiences from real customers across India
+                </p>
+            </div>
+            <div class="testimonials-grid animate-on-scroll">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Booked a plumber at 11 PM for a burst pipe — Rajesh arrived in 25
+                        minutes! Incredible service. Fixed everything perfectly. Will definitely use PlumBit again."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">P</div>
+                        <div>
+                            <div class="testimonial-name">Priya Mehta</div>
+                            <div class="testimonial-role">Homeowner • Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Outstanding platform! The price estimate was spot-on. Suresh did a
+                        flawless bathroom installation. The 30-day warranty gave me so much peace of mind."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">A</div>
+                        <div>
+                            <div class="testimonial-name">Arjun Nair</div>
+                            <div class="testimonial-role">Software Engineer • Bangalore</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The Pro subscription saves me ₹400 monthly! Anand is our go-to plumber
+                        now. Professional, punctual, and always does a great job. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">S</div>
+                        <div>
+                            <div class="testimonial-name">Sunita Gupta</div>
+                            <div class="testimonial-role">Teacher • Delhi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section-sm">
+        <div class="container animate-on-scroll">
+            <div
+                style="background:linear-gradient(135deg,rgba(14,165,233,0.1),rgba(249,115,22,0.06));border:1px solid var(--border-glass);border-radius:var(--radius-xl);padding:60px 40px;text-align:center;position:relative;overflow:hidden">
+                <div
+                    style="position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:400px;height:200px;background:radial-gradient(circle,rgba(14,165,233,0.12),transparent);border-radius:50%;">
+                </div>
+                <h2 style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;margin-bottom:12px;position:relative">
+                    Ready to Fix Your <span class="gradient-text">Plumbing Problem?</span></h2>
+                <p style="color:var(--text-secondary);font-size:1.05rem;margin-bottom:32px;position:relative">Book a
+                    verified plumber in under 60 seconds. Transparent pricing, no surprises.</p>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative">
+                    <a href="booking.html" class="btn btn-primary btn-lg">🪠 Book Now — It's Free</a>
+                    <a href="contact.html" class="btn btn-glass btn-lg">💬 Talk to Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+                            <div class="brand-icon">🔧</div>
+                            <span
+                                style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:var(--text-primary)">PlumBit</span>
+                        </div>
+                        <p>India's most trusted online plumbing service platform. Connecting homeowners with verified
+                            plumbers since 2020.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">𝕏</a>
+                            <a href="#" class="social-link">f</a>
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">📸</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <div class="footer-links">
+                            <a href="services.html" class="footer-link">Pipe Leak Repair</a>
+                            <a href="services.html" class="footer-link">Tap Replacement</a>
+                            <a href="services.html" class="footer-link">Bathroom Plumbing</a>
+                            <a href="services.html" class="footer-link">Drain Cleaning</a>
+                            <a href="services.html" class="footer-link">Water Heater Repair</a>
+                            <a href="services.html" class="footer-link">Emergency 24/7</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <div class="footer-links">
+                            <a href="about.html" class="footer-link">About Us</a>
+                            <a href="contact.html" class="footer-link">Contact</a>
+                            <a href="#" class="footer-link">Careers</a>
+                            <a href="#" class="footer-link">Blog</a>
+                            <a href="#" class="footer-link">Partner (Plumber)</a>
+                            <a href="#" class="footer-link">Privacy Policy</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span> 1800-PLUMBIT (Toll
+                            Free)</div>
+                        <div class="footer-contact-item"><span class="footer-contact-icon">✉️</span> support@plumbit.in
+                        </div>
+                        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span> 123 Tech Park,
+                            Bangalore</div>
+                        <div class="footer-contact-item"><span class="footer-contact-icon">🕐</span> 24/7 Emergency
+                            Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 PlumBit Technologies Pvt. Ltd. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span class="footer-badge">🔒 SSL Secured</span>
+                    <span class="footer-badge">✅ ISO Certified</span>
+                    <span class="footer-badge">🏆 Top Rated 2025</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-bubble">
+        <button class="chatbot-btn" id="chatbotBtn" aria-label="Open chat support">💬
+            <span class="chatbot-notif">1</span>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-av">🤖</div>
+                <div>
+                    <div class="chatbot-name">PlumBot AI</div>
+                    <div class="chatbot-status"><span class="status-dot status-online"></span> Online • Instant replies
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-msg bot">
+                    Hi! I'm <strong>PlumBot</strong> 🤖 Your smart plumbing assistant. How can I help?
+                    <div class="quick-replies">
+                        <span class="quick-reply">💰 Pricing</span>
+                        <span class="quick-reply">📅 How to Book</span>
+                        <span class="quick-reply">🚨 Emergency</span>
+                        <span class="quick-reply">🔧 Services</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-row">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type a message...">
+                <button class="chatbot-send" id="chatbotSend">→</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

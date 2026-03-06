@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About PlumBit — Our mission to connect homeowners with reliable, verified plumbers across India.">
+    <title>About Us — PlumBit</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <div class="container navbar-container">
+                <a href="index.html" class="navbar-brand">
+                    <div class="brand-icon">🔧</div><span class="brand-name">PlumBit</span>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="booking.html" class="nav-link">Book Now</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="nav-right">
+                    <button class="nav-search-btn" id="searchBtn">🔍</button>
+                    <button id="langToggle" class="btn btn-glass btn-sm hide-mobile">🌐 EN</button>
+                    <a href="login.html" class="btn btn-outline btn-sm hide-mobile">Login</a>
+                    <a href="booking.html" class="btn btn-primary btn-sm hide-mobile">Book Now 🪠</a>
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+        <a href="services.html" class="mobile-nav-link">🔧 Services</a>
+        <a href="booking.html" class="mobile-nav-link">📅 Book Now</a>
+        <a href="about.html" class="mobile-nav-link active">ℹ️ About</a>
+        <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+        <div class="mobile-divider"></div>
+        <div class="mobile-auth"><a href="login.html" class="btn btn-outline btn-sm">Login</a><a href="booking.html"
+                class="btn btn-primary btn-sm">Book Now</a></div>
+    </div>
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" id="searchClose">✕</button>
+        <div class="search-box"><input type="search" class="search-input-big" id="searchInputBig"
+                placeholder="Search plumbing services..."><span class="search-icon-big">🔍</span>
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="page-hero" style="padding-top:110px">
+        <div class="container">
+            <p class="badge badge-primary" style="margin:0 auto 14px;display:inline-flex;">🏢 Our Story</p>
+            <h1>Building <span class="gradient-text">Trust</span> in Every Home</h1>
+            <p>We started PlumBit with a simple mission — make home plumbing services fast, affordable, and trustworthy
+                for every Indian household.</p>
+        </div>
+    </div>
+
+    <!-- MISSION -->
+    <section class="section" style="padding-top:20px">
+        <div class="container">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:80px">
+                <div>
+                    <p class="badge badge-accent" style="margin-bottom:14px;display:inline-flex;">💡 Our Mission</p>
+                    <h2 style="font-size:2rem;font-weight:800;margin-bottom:16px">Why We Built <span
+                            class="gradient-text">PlumBit</span></h2>
+                    <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:16px">Finding a reliable plumber
+                        in India was frustrating — no transparent pricing, unverified workers, and unpredictable wait
+                        times. We built PlumBit to change that.</p>
+                    <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:24px">Our platform connects
+                        homeowners with background-checked, licensed plumbing professionals who deliver quality work
+                        with a 30-day warranty — at fair, upfront prices.</p>
+                    <div style="display:flex;flex-direction:column;gap:12px">
+                        <div style="display:flex;align-items:center;gap:12px"><span
+                                style="color:var(--primary);font-size:1.2rem">✅</span><span
+                                style="font-weight:600">Helping users find reliable plumbers in minutes</span></div>
+                        <div style="display:flex;align-items:center;gap:12px"><span
+                                style="color:var(--primary);font-size:1.2rem">✅</span><span
+                                style="font-weight:600">Providing 100% transparent, upfront pricing</span></div>
+                        <div style="display:flex;align-items:center;gap:12px"><span
+                                style="color:var(--primary);font-size:1.2rem">✅</span><span
+                                style="font-weight:600">Improving convenience in home maintenance</span></div>
+                        <div style="display:flex;align-items:center;gap:12px"><span
+                                style="color:var(--primary);font-size:1.2rem">✅</span><span
+                                style="font-weight:600">Creating dignified, well-paid jobs for plumbers</span></div>
+                    </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                    <div class="stat-card"
+                        style="grid-column:1/-1;background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(249,115,22,0.06));border-color:var(--border-glass)">
+                        <div class="stat-value" data-count="50000" data-suffix="+">0</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="523" data-suffix="+">0</div>
+                        <div class="stat-label">Verified Plumbers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="25" data-suffix="+">0</div>
+                        <div class="stat-label">Cities</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4.9⭐</div>
+                        <div class="stat-label">Platform Rating</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">30 Day</div>
+                        <div class="stat-label">Service Warranty</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="text-center animate-on-scroll" style="margin-bottom:48px">
+                <p class="badge badge-primary" style="margin:0 auto 14px;display:inline-flex;">⚡ Simple Process</p>
+                <h2 class="section-title">How <span class="gradient-text">PlumBit Works</span></h2>
+                <p class="section-subtitle" style="margin:0 auto 48px">From problem to solution in under 60 seconds</p>
+            </div>
+            <div class="how-works-grid animate-on-scroll">
+                <div class="how-card">
+                    <div class="step-number">1</div>
+                    <div class="how-card-icon">📱</div>
+                    <h3>Describe Your Problem</h3>
+                    <p>Open PlumBit, search for your plumbing issue, or upload a photo. Our AI helps identify the exact
+                        service you need.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">2</div>
+                    <div class="how-card-icon">👷</div>
+                    <h3>Get Matched Instantly</h3>
+                    <p>We match you with the best verified plumber near your location based on skill, rating, and
+                        availability. All in seconds.</p>
+                </div>
+                <div class="how-card">
+                    <div class="step-number">3</div>
+                    <div class="how-card-icon">🏆</div>
+                    <h3>Job Done & Guaranteed</h3>
+                    <p>Your plumber arrives on time, fixes the issue professionally, and you pay only after you're
+                        satisfied. 30-day warranty included.</p>
+                </div>
+            </div>
+
+            <hr class="glow-line">
+
+            <!-- Why Choose Us -->
+            <div class="text-center animate-on-scroll" style="margin-bottom:48px">
+                <p class="badge badge-accent" style="margin:0 auto 14px;display:inline-flex;">🏅 Why Us</p>
+                <h2 class="section-title">Why Choose <span class="gradient-text">PlumBit</span></h2>
+            </div>
+            <div class="trust-badges animate-on-scroll">
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">🔍</div>
+                    <h4>Background Verified</h4>
+                    <p>Every plumber is identity checked, license verified, and background screened before joining</p>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">💰</div>
+                    <h4>Transparent Pricing</h4>
+                    <p>See exact pricing before booking. No hidden charges, no surprises at the end</p>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">🛡️</div>
+                    <h4>Service Warranty</h4>
+                    <p>30-day warranty on all services. If there's an issue, we fix it free of charge</p>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-badge-icon">⚡</div>
+                    <h4>Lightning Fast</h4>
+                    <p>Book a plumber in 60 seconds. Emergency services arrive within 30 minutes</p>
+                </div>
+            </div>
+
+            <hr class="glow-line">
+
+            <!-- Team -->
+            <div class="text-center animate-on-scroll" style="margin-bottom:48px">
+                <p class="badge badge-primary" style="margin:0 auto 14px;display:inline-flex;">👥 The Team</p>
+                <h2 class="section-title">Meet the <span class="gradient-text">Founders</span></h2>
+                <p class="section-subtitle" style="margin:0 auto 48px">Passionate about making home maintenance simple
+                    and trustworthy</p>
+            </div>
+            <div class="grid-3 animate-on-scroll" style="max-width:900px;margin:0 auto">
+                <div class="card text-center" style="padding:36px 24px">
+                    <div
+                        style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px">
+                        👨‍💼</div>
+                    <div style="font-size:1.1rem;font-weight:800;margin-bottom:4px">Aryan Kapoor</div>
+                    <div style="font-size:0.85rem;color:var(--primary-light);margin-bottom:12px">CEO & Co-Founder</div>
+                    <div style="font-size:0.82rem;color:var(--text-secondary)">Ex-Urbanclap, IIT Bombay. Passionate
+                        about organizing India's skilled workforce.</div>
+                </div>
+                <div class="card text-center" style="padding:36px 24px">
+                    <div
+                        style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px">
+                        👩‍💻</div>
+                    <div style="font-size:1.1rem;font-weight:800;margin-bottom:4px">Meera Nair</div>
+                    <div style="font-size:0.85rem;color:var(--accent-light);margin-bottom:12px">CTO & Co-Founder</div>
+                    <div style="font-size:0.82rem;color:var(--text-secondary)">Ex-Google India, IISc Bangalore. Building
+                        tech that scales to every corner of India.</div>
+                </div>
+                <div class="card text-center" style="padding:36px 24px">
+                    <div
+                        style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--success),#059669);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px">
+                        👨‍🔧</div>
+                    <div style="font-size:1.1rem;font-weight:800;margin-bottom:4px">Sunil Verma</div>
+                    <div style="font-size:0.85rem;color:#4ADE80;margin-bottom:12px">COO & Plumber Network Head</div>
+                    <div style="font-size:0.82rem;color:var(--text-secondary)">25 years plumbing experience. Ensures
+                        quality standards for every professional on our platform.</div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="animate-on-scroll"
+                style="margin-top:60px;text-align:center;background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(249,115,22,0.06));border:1px solid var(--border-glass);border-radius:var(--radius-xl);padding:60px 40px">
+                <h2 style="font-size:2rem;font-weight:800;margin-bottom:12px">Ready to Experience <span
+                        class="gradient-text">PlumBit?</span></h2>
+                <p style="color:var(--text-secondary);margin-bottom:28px">Join 50,000+ homeowners who trust us with
+                    their homes</p>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                    <a href="booking.html" class="btn btn-primary btn-lg">🪠 Book a Plumber</a>
+                    <a href="contact.html" class="btn btn-glass btn-lg">📞 Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+                            <div class="brand-icon">🔧</div><span
+                                style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;color:var(--text-primary)">PlumBit</span>
+                        </div>
+                        <p>India's most trusted online plumbing service platform.</p>
+                        <div class="social-links"><a href="#" class="social-link">𝕏</a><a href="#"
+                                class="social-link">f</a><a href="#" class="social-link">in</a></div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <div class="footer-links"><a href="services.html" class="footer-link">Pipe Leak Repair</a><a
+                                href="services.html" class="footer-link">Drain Cleaning</a><a href="services.html"
+                                class="footer-link">Emergency 24/7</a></div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <div class="footer-links"><a href="about.html" class="footer-link">About Us</a><a
+                                href="contact.html" class="footer-link">Contact</a><a href="#"
+                                class="footer-link">Careers</a></div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span>1800-PLUMBIT</div>
+                        <div class="footer-contact-item"><span class="footer-contact-icon">✉️</span>support@plumbit.in
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 PlumBit Technologies Pvt. Ltd.</p>
+                <div class="footer-badges"><span class="footer-badge">🔒 SSL Secured</span><span class="footer-badge">✅
+                        ISO Certified</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-bubble">
+        <button class="chatbot-btn" id="chatbotBtn">💬<span class="chatbot-notif">1</span></button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-av">🤖</div>
+                <div>
+                    <div class="chatbot-name">PlumBot AI</div>
+                    <div class="chatbot-status"><span class="status-dot status-online"></span>Online</div>
+                </div><button class="chatbot-close" id="chatbotClose">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-msg bot">Learn about PlumBit! <div class="quick-replies"><span
+                            class="quick-reply">warranty</span><span class="quick-reply">plumber</span><span
+                            class="quick-reply">book</span></div>
+                </div>
+            </div>
+            <div class="chatbot-input-row"><input type="text" class="chatbot-input" id="chatbotInput"
+                    placeholder="Type a message..."><button class="chatbot-send" id="chatbotSend">→</button></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
